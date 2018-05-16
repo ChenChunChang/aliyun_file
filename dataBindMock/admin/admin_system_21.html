@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>短信营销</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=list'">队列</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=smsqueue_add'">添加</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=smsqueue_batchadd'">批量添加</button>
+        </div>
+        <div class="ibox-content">
+            <div class="external-event navy-bg ui-draggable">
+                <h2>提示：</h2>
+                <p>
+                    短信内容不能超过70个字！
+                </p>
+            </div>
+        </div>
+        <form class="ibox-content" id="form1" name="form1" method="post" action="?act=smsqueue_batchadd_save">
+            <input type="hidden" name="hiddentoken" value="bd6cb061" />
+            <div class="external-event navy-bg ui-draggable">新增短信任务</div>
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr>
+                    <td width="120" height="30" align="right">收件会员：</td>
+                    <td>
+                        <label>
+                            <input name="selutype" type="radio" value="0" checked="checked" id="noutype" /> 不限
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="selutype" value="1" /> 企业会员
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="selutype" value="2" /> 个人会员
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="selutype" value="3" /> 猎头顾问
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="selutype" value="4" /> 培训机构
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120" height="30" align="right">验证类型：</td>
+                    <td>
+                        <label>
+                            <input name="verification" type="radio" value="" checked="checked" /> 不限</label>&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verification" type="radio" value="1" /> 邮箱已验证</label>&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verification" type="radio" value="2" /> 邮箱未验证</label>&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verification" type="radio" value="3" /> 手机已验证</label>&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verification" type="radio" value="4" /> 手机未验证</label>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120" height="30" align="right">登录时间：</td>
+                    <td>
+                        <label>
+                            <input name="selsettr" type="radio" value="" checked="checked" /> 不限
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="selsettr" type="radio" value="7" /> 一周未登录
+                        </label>
+                        &nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="selsettr" value="30" /> 一月未登录
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100" align="right">发送内容:</td>
+                    <td>
+                        <textarea name="s_body" class="input_text_400" style="height:80px;"></textarea>
+                        <span class="admin_note">内容超过70个字符将自动截取</span> </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">&nbsp;</td>
+                    <td height="50">
+                        <input name="submit3" type="submit" class="btn btn-w-m btn-primary" value="添加" />
+                        <input name="submit22" type="button" class="btn btn-w-m btn-primary" value="返回" onclick="Javascript:window.history.go(-1)" />
+                        <input name="submit22" type="button" class="btn btn-w-m btn-primary" action="?act=export_info" id="export_info" value="导出信息" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

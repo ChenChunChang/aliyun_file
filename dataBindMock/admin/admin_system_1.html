@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        input[type=text]{
+            display: inline-block;
+        }
+        .input_text_200{
+            width: 200px;
+        }
+        .input_text_400{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>网站配置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <form class="ibox-content" action="admin_set.php?act=site_setsave" method="post" enctype="multipart/form-data" name="form1" id="form1">
+            <input type="hidden"  name="hiddentoken" value="a8e48d43" />
+            <table class="table">
+                <tr>
+                    <td width="150" align="right">网站名称：</td>
+                    <td>
+                        <input name="site_name" type="text" class="input_text_200 form-control" id="site_name" value="任我充" maxlength="30" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站域名：</td>
+                    <td>
+                        <input name="site_domain" type="text" class="input_text_200 form-control" id="site_domain" value="http://new.shanghaidingchong.com" maxlength="100" /> 结尾不要加 &quot; / &quot;</td>
+                </tr>
+                <tr>
+                    <td align="right">触屏版域名：</td>
+                    <td>
+                        <input name="wap_domain" type="text" class="input_text_200 form-control" id="wap_domain" value="" maxlength="100" /> 设置后请将域名绑定到m目录；如不设置请留空
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">安装目录：</td>
+                    <td>
+                        <input name="site_dir" type="text" class="input_text_200 form-control" id="site_dir" value="/" maxlength="40" /> ( 以 &quot; / &quot; 开头和结尾, 如果安装在根目录，则为&quot; / &quot;) </td>
+                </tr>
+                <tr>
+                    <td align="right">联系电话(顶部)：</td>
+                    <td>
+                        <input name="top_tel" type="text" class="input_text_400 form-control" id="top_tel" value="000-00000000" maxlength="80" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">联系电话(底部)：</td>
+                    <td>
+                        <input name="bootom_tel" type="text" class="input_text_400 form-control" id="bootom_tel" value="000-00000000" maxlength="80" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站底部联系地址：</td>
+                    <td>
+                        <input name="address" type="text" class="input_text_400 form-control" id="address" value="00省00市00路00号0大厦00楼" maxlength="120" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站底部其他说明：</td>
+                    <td>
+                        <input name="bottom_other" type="text" class="input_text_400 form-control" id="bottom_other" value="Copyright @ 2015 74cms.com All Right Reserved " maxlength="200" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站备案号(ICP)：</td>
+                    <td>
+                        <input name="icp" type="text" class="input_text_400 form-control" id="icp" value="icp000000000" maxlength="30" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站Logo： </td>
+                    <td>
+                        <input name="web_logo" type="file" id="web_logo" style="width:300px; font-size:12px; padding:3px;display:inline-block;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false" />&nbsp;&nbsp;&nbsp;
+                        <input type="button" name="Submit" value="查看Logo" class="preview" title="<img src=../data/images/logo.png?t=37  border=0  align=absmiddle>" style=" font-size:12px;" /> </td>
+                </tr>
+                <tr>
+                    <td align="right">暂时关闭网站：</td>
+                    <td>
+                        <label>
+                            <input name="isclose" type="radio" id="isclose" value="0" checked="checked" />否</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="isclose" value="1" id="isclose1" />是</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">暂时关闭原因：</td>
+                    <td>
+                        <textarea name="close_reason" class="input_text_400 form-control" id="close_reason" style="height:60px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">第三方流量统计代码：</td>
+                    <td>
+                        <textarea name="statistics" class="input_text_400 form-control" id="statistics" style="height:60px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">关闭会员注册：</td>
+                    <td>
+                        <label>
+                            <input name="closereg" type="radio" id="closereg" value="0" checked=checked />否</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="closereg" value="1" />是</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">关闭更新时间：</td>
+                    <td>
+                        <label>
+                            <input name="closetime" type="radio" id="closetime" value="0" />否</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="closetime" value="1" checked=checked/>是</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">邮件注册会员激活：</td>
+                    <td>
+                        <label>
+                            <input name="check_reg_email" type="radio" id="check_reg_email" value="0" checked=checked />否</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="check_reg_email" value="1" />是</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">网站主体背景：</td>
+                    <td>
+                        <input name="body_bgimg" type="file" id="body_bgimg" style="width:170px; font-size:12px; padding:3px;display:inline-block;" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false" />&nbsp;&nbsp;&nbsp;(背景图片尺寸：1000x156 像素)
+                        <br>
+                        <input type="button" name="Submit" value="查看网站主体背景" class="preview" title="<img src=../data/images/01.jpg border=0  align=absmiddle width=800 >" style=" font-size:12px;" />&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="right">&nbsp;</td>
+                    <td height="50">
+                        <input name="submit" type="submit" class="btn btn-w-m btn-primary" value="保存修改" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+(function($) {
+    $.fn.preview = function() {
+        var xOffset = 10;
+        var yOffset = 20;
+        var w = $(window).width();
+        $(this).each(function() {
+            $(this).hover(function(e) {
+                if (/.png$|.gif$|.jpg$|.bmp$/.test($(this).attr("title"))) {
+                    $("body").append("<div id='preview'><div><img src='" + $(this).attr('title') + "' /><p>" + $(this).attr('title') + "</p></div></div>");
+                } else {
+                    $("body").append("<div id='preview'><div><p>" + $(this).attr('title') + "</p></div></div>");
+                }
+                $("#preview").css({
+                    position: "absolute",
+                    padding: "4px",
+                    border: "1px solid #f3f3f3",
+                    backgroundColor: "#eeeeee",
+                    top: (e.pageY - yOffset) + "px",
+                    zIndex: 1000
+                });
+                $("#preview > div").css({
+                    padding: "5px",
+                    backgroundColor: "white",
+                    border: "1px solid #cccccc"
+                });
+                $("#preview > div > p").css({
+                    textAlign: "center",
+                    fontSize: "12px",
+                    padding: "8px 0 3px",
+                    margin: "0"
+                });
+                if (e.pageX < w / 2) {
+                    $("#preview").css({
+                        left: e.pageX + xOffset + "px",
+                        right: "auto"
+                    }).fadeIn("fast");
+                } else {
+                    $("#preview").css("right", (w - e.pageX + yOffset) + "px").css("left", "auto").fadeIn("fast");
+                }
+            }, function() {
+                $("#preview").remove();
+            }).mousemove(function(e) {
+                $("#preview").css("top", (e.pageY - xOffset) + "px")
+                if (e.pageX < w / 2) {
+                    $("#preview").css("left", (e.pageX + yOffset) + "px").css("right", "auto");
+                } else {
+                    $("#preview").css("right", (w - e.pageX + yOffset) + "px").css("left", "auto");
+                }
+            });
+        });
+    };
+})(jQuery);
+
+ $(function() {
+        $("input.preview").preview();
+    });
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

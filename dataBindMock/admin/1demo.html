@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心 - 首页</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <!-- Morris -->
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+<link href="css/bootstrap.min14ed.css" rel="stylesheet">
+<link href="css/font-awesome.min93e3.css" rel="stylesheet">
+<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+<link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/style.min862f.css" rel="stylesheet">
+<style type="text/css">
+h3,
+input {
+    display: inline-block;
+}
+
+.clear:after {
+    content: "";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.col-sm-3 .ibox .ibox-content {
+    width: 100%;
+    border-radius: 5px;
+    background-color: #DEEBFF;
+}
+
+.img {
+    width: 30%;
+    display: inline-block;
+    margin-right: 2%;
+    margin-top: 15px;
+    float: left;
+}
+
+.img img {
+    width: 100%;
+}
+
+.details {
+    width: 65%;
+    display: inline-block;
+    background-color: #fff;
+    float: right;
+    margin-left: 2%;
+    margin-top: 15px;
+    padding: 7px 10px 5px;
+}
+
+.details p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 20px;
+}
+</style>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="charging">
+            <div class="ibox-title">
+                <h3>现场充电桩信息</h3>
+                <div class="ibox-tools">
+                    <div style="float: right;">
+                        <input name="act" type="hidden" value="">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+                    </div>
+                    <div style="float: right;">
+                        <input name="key" placeholder="请输入桩序号搜索..." type="text" value="" class="form-control input-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row clear" id="data-el">
+                    <div class="col-sm-3" v-for="(i,v) in imgData">
+                        <div class="ibox">
+                            <div class="ibox-content clear" style="">
+                                <div class="img">
+                                    <img :src="i.img" alt="" />
+                                </div>
+                                <div class="details">
+                                    <p v-for="key in i.details">{{key}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataTables_paginate paging_simple_numbers ibox-content">
+                    <ul class="pagination btn-sm ibox-tools">
+                        <li>
+                            <a class="">首页</a>
+                        </li>
+                        <li>
+                            <a class="">上一页</a>
+                        </li>
+                        <li>
+                            <a href="">下一页</a>
+                        </li>
+                        <li>
+                            <a href="">尾页</a>
+                        </li>
+                        <input type="text" style="display:inline-block;width:46px;height:24px;margin-left:20px;border-radius:3px;border:1px solid #bbb;" />
+                        <a href="" style="display:inline-block;;color:#000;border:1px solid #bbb;width:46px;height:24px;line-height:24px;text-align:center;border-radius:3px;">跳转</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/plugins/chosen/chosen.jquery.js"></script>
+    <script src="js/plugins/iCheck/icheck.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script>
+    var app = new Vue({
+        el: "#data-el",
+        data: {
+            "imgData": [{
+                "img": "images/inCharging.png",
+                "details": [
+                    "当前状态:充电中",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/leisure.png",
+                "details": [
+                    "当前状态:空闲",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/offLine.png",
+                "details": [
+                    "当前状态:离线",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/onLine.png",
+                "details": [
+                    "当前状态:在线",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/fault.png",
+                "details": [
+                    "当前状态:故障",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/leisure.png",
+                "details": [
+                    "当前状态:空闲",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/offLine.png",
+                "details": [
+                    "当前状态:离线",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/leisure.png",
+                "details": [
+                    "当前状态:空闲",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/inCharging.png",
+                "details": [
+                    "当前状态:充电中",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/inCharging.png",
+                "details": [
+                    "当前状态:充电中",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/inCharging.png",
+                "details": [
+                    "当前状态:充电中",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }, {
+                "img": "images/onLine.png",
+                "details": [
+                    "当前状态:在线",
+                    "桩编号：63",
+                    "类型：直流",
+                    "电量：55.9°",
+                    "当前SOC: 29%",
+                    "当前充电枪：A枪",
+                    "实时电压/电流: 600V/20A"
+                ]
+            }]
+        }
+    });
+    </script>
+</body>
+
+</html>

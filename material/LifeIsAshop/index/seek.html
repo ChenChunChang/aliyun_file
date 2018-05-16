@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"  name="viewport">
+	<title>搜索</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container">
+	<!-- header -->
+		<header class="header">
+			<a href="index.html">
+				<img src="img/back.png">
+			</a>
+			<span>搜索</span>
+		</header>
+		<!-- 主体 -->
+		<div class="main" >
+			<div class="key_suo clear">
+				<img src="img/suosuo.png" class="img1">
+				<input type="text" placeholder="输入关键词/商品名称" style="font-size: 18px" id="ipt">
+			</div>
+			<div class="shop_item" id="main_gs">
+				<p>热门搜索</p>
+				<ul>
+					<li>小挎包</li>
+					<li>皮带</li>
+					<li>背包</li>
+					<li>鞋子</li>
+					<li>椅子</li>
+					<li>书包</li>
+					<li>剪子</li>
+					<li>刀子</li>
+				</ul>
+			</div>
+			<div class="goods" style="display: none" id="goods">
+				<div class="goods_item">
+					<img src="img/goods1.png" class="gds_img">					
+				</div>
+				<div class="gds_inst">
+					<p>坚果特产山核桃奶油味碧根....</p>
+					<h2>￥ 29.5</h2>
+				</div>
+			</div>			
+		</div>
+
+		<!-- 遮罩层 -->
+		<div id="mask" style="display: none"></div>
+		<div class="alert" style="display: none" id="alert">
+			<div class="altop">
+				<span>留言</span>
+				<img src="img/close.png" id="close">
+				<textarea placeholder="想买什么商品" style="width: 6.2rem;height: 4.3rem;margin-top: 0.6rem;resize: none;font-size: 0.3rem"></textarea>
+				<button>提交</button>
+			</div>
+		</div>
+		<!-- 导航栏 -->
+		<nav class="vipNav">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li>
+					<a href="../great/vip.html">会员</a>
+				</li>
+				<li>
+					<a href="../classify/classify_index.html">分类</a>
+				</li>
+				<li>
+					<a href="../shop/shopCart.html">购物车</a>
+				</li>
+				<li>
+					<a href="../login/ywSign.html">我的</a>
+				</li>
+			</ul>
+		</nav>
+
+		<!-- container -->
+	</div>
+</body>
+<script type="text/javascript">
+	(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+var ipt = document.getElementById("ipt");
+var main_gs = document.getElementById("main_gs");
+var goods = document.getElementById("goods");
+var mask = document.getElementById("mask")
+var alert1 = document.getElementById("alert")
+var close = document.getElementById("close")
+// ipt.addEventListener("")
+ipt.onclick = function(){	
+		main_gs.style.display = "none";
+		goods.style.display = 'block';
+	
+}	
+ipt.oninput = function(){
+	if(ipt.value == 1){
+		goods.style.display = "none";
+		main_gs.style.display = "none";
+		mask.style.display = 'block';
+		alert1.style.display = "block";
+		}
+}
+close.onclick = function(){
+	mask.style.display = "none";
+	alert1.style.display = "none";
+	main_gs.style.display = "block";
+	
+}
+</script>
+</html>

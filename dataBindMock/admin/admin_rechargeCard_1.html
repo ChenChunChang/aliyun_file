@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>后台管理中心</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	</head>
+
+	<body class="gray-bg sidebar-content">
+		<div class="wrapper-content animated fadeInRight">
+			<div class="ibox-title">
+				<button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button> &nbsp;&nbsp;
+				<b>充电卡管理</b> &nbsp;&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class="ibox-content">
+				<p>
+					<button type="button" class="btn btn-w-m btn-link btn-sm">用户类型:</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?type=&key=&page=1'">不限</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?type=2&key=&page=1'">个人用户</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?type=1&key=&page=1'">企业用户</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?type=3&key=&page=1'">运营用户</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?type=4&key=&page=1'">公交用户</button>
+				</p>
+				<p>
+					<button type="button" class="btn btn-w-m btn-link btn-sm">添加时间:</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?settr=&key=&page=1'">不限</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?settr=7&key=&page=1'">一周内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?settr=30&key=&page=1'">一月内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?settr=182&key=&page=1'">半年内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?settr=365&key=&page=1'">一年内</button>
+				</p>
+				<p>
+					<button type="button" class="btn btn-w-m btn-link btn-sm">充电卡状态:</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?status=&key=&page=1'">不限</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?status=0&key=&page=1'">正常</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?status=1&key=&page=1'">冻结</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?status=2&key=&page=1'">失效</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?status=3&key=&page=1'">锁定</button>
+				</p>
+			</div>
+			<form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=del_card">
+				<table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+					<thead>
+						<tr>
+							<td v-for="i in name" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="key in message">
+							<td v-for="i in key" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div v-if="message"></div>
+				 <div v-else="message">没有任何信息！</div>
+			</form>
+			<div class="ibox-content">
+				<table style="border:1px solid #fff">
+					<tr class="row">
+						<td class="col-sm-4 m-b-xs">
+							<a data-toggle="modal" href="admin_rechargeCard_1.html#modal-state" class="btn btn-outline btn-default" title="状态管理">
+								<i class="glyphicon glyphicon-pushpin"></i>
+							</a>
+							<a data-toggle="modal" href="admin_rechargeCard_1.html#modal-del" class="btn btn-outline btn-default" name="ButDel" id="ButDel" title="删除">
+								<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+							</a>
+							<font color="#ff6600">*[未]：仅申请开通充电卡，未实际制作卡片。</font>
+						</td>
+						<td class="col-sm-8 m-b-xs">
+							<form id="formseh" name="formseh" method="get" action="?">
+								<div class="input-group ibox-tools" style="margin-top: -7px;">
+									<div style="float: right;">
+										<input name="act" type="hidden" value="members_list" />
+										<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+									</div>
+									<div style="float: right;">
+										<input name="key" type="text" value="" class="form-control input-sm" />
+									</div>
+									<div style="float: right;">
+										<select class="form-control m-b input-sm" name="key_type" style="border-right: none;">
+											<option value="1">卡号</option>
+											<option value="2">会员</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<div class="dataTables_paginate paging_simple_numbers ibox-content">
+					<ul class="pagination btn-sm ibox-tools">
+						<li>
+							<a class="">首页</a>
+						</li>
+						<li>
+							<a class="">上一页</a>
+						</li>
+						<li>
+							<a class="select">1</a>
+						</li>
+						<li>
+							<a href="/admin/admin_cards.php?page=2">2</a>
+						</li>
+						<li>
+							<a href="/admin/admin_cards.php?page=2">下一页</a>
+						</li>
+						<li>
+							<a href="/admin/admin_cards.php?page=2">尾页</a>
+						</li>
+						<li class="page_all">
+							<a>1/2页</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--  -->
+		<div id="modal-del" class="modal fade" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+							<tr>
+								<td height="30" colspan="2"><strong style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+							</tr>
+							<tr>
+								<td width="20" height="25">&nbsp;</td>
+								<td>
+									<label>
+                                    <input name="delete_card" type="checkbox" id="delete_card" value="yes" checked="checked" /> 删除此卡
+                                    <span style="color:#666666">(删除后此卡无法使用充值功能)<span></label></td>
+							</tr>
+							<tr>
+								<td width="20" height="25">&nbsp;</td>
+								<td><label>
+                    <input name="delete_card_dkjl" type="checkbox" id="delete_card_dkjl" value="yes" checked="checked" />
+                删除此卡历史读卡记录</label></td>
+							</tr>
+							<tr>
+								<td height="25">&nbsp;</td>
+								<td><input type="submit" id="del_sub" name="delete" value="确定" class="btn btn-w-m btn-primary" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="modal-state" class="modal fade" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						<table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+							<tr>
+								<td width="20" height="30">&nbsp;</td>
+								<td height="30"><strong style="color:#0066CC; font-size:14px;">将所选充点卡设置为：</strong></td>
+							</tr>
+
+							<tr>
+								<td height="25">&nbsp;</td>
+								<td>
+									<label><input name="audit" type="radio" value="0" checked="checked"  id="success" />正常</label>
+									<label><input type="radio" name="audit" value="1"  id="fail"/>冻结</label>
+									<label><input type="radio" name="audit" value="2"  id="fail"/>失效</label>
+									<label><input type="radio" name="audit" value="3"  id="fail"/>锁定</label>
+								</td>
+							</tr>
+							<tr>
+								<td height="25">&nbsp;</td>
+								<td><input type="submit" id="set_audit" name="set_audit" value="确定" class="btn btn-w-m btn-primary" /></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/peity/jquery.peity.min.js"></script>
+	<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+	<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+	<script src="js/content.min.js?v=1.0.0"></script>
+	<script src="js/vue.js"></script>
+	<script>
+		$.get("../data/data/admin_rechargeCard_1.json", function(Data) {
+			var app = new Vue({
+				el: "#form1",
+				data: Data
+			});
+			var btn = document.getElementById("chk");
+			var test = document.getElementsByName("y_id[]");
+			btn.onclick = function() {
+				for(var i = 1; i <= test.length; i += 1) {
+					if(test[i - 1].checked) {
+						test[i - 1].checked = false;
+					} else {
+						test[i - 1].checked = true;
+					}
+				}
+			};
+			$("#del_sub").click(function() {
+				$("#modal-del").removeClass('in').css("display", "none");
+				$(".modal-backdrop").removeClass();
+			});
+			$("#set_audit").click(function() {
+				$("#modal-state").removeClass('in').css("display", "none");
+				$(".modal-backdrop").removeClass();
+			});
+		});
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

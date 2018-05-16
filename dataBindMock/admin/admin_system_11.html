@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .input_text_150{
+            width: 150px;
+            display: inline-block;
+        }
+        .input_text_50{
+            width: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>个人设置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <!-- external-event navy-bg ui-draggable -->
+        <form class="ibox-content" action="?act=set_save" method="post" name="form1" id="form1">
+            <input type="hidden" name="hiddentoken" value="cae27ed7" />
+            <div class="external-event navy-bg ui-draggable">基本设置</div>
+            <table class="table">
+                <tr>
+                    <td width="200" align="right">个人充电卡申请数量：</td>
+                    <td>
+                        <input name="resume_max" type="text" class="input_text_150 form-control" id="resume_max" value="3" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /> 份 </td>
+                </tr>
+                <tr>
+                    <td align="right">个人每日提现金额：</td>
+                    <td>
+                        <input name="apply_jobs_max" type="text" class="input_text_150 form-control" id="apply_jobs_max" value="30" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /> 元 </td>
+                </tr>
+                <tr>
+                    <td align="right">是否允许第三方账号登录：</td>
+                    <td>
+                        <input name="resume_photo_max" type="text" class="input_text_150 form-control" id="resume_photo_max" value="500" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /> </td>
+                </tr>
+                <tr>
+                    <td align="right">是否开启手机号登录：</td>
+                    <td>
+                        <input name="resume_list_max" type="text" class="input_text_150 form-control" value="1000" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">是否允许游客充电：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">个人充电卡申请数量：</td>
+                    <td>
+                        <input name="resume_max" type="text" class="input_text_150 form-control" id="resume_max" value="3" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /> 份 </td>
+                </tr>
+            </table>
+            <table class="table">
+                <div class="external-event navy-bg ui-draggable">认证设置</div>
+                <tr>
+                    <td align="right" width="200">是否强制会员绑定手机号：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">是否强制会员认证email：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">是否强制会员实名认证：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <div class="external-event navy-bg ui-draggable">积分设置</div>
+                <tr>
+                    <td align="right" width="200">每日积分总上限：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note">0为不设置</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">每日充电</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />k/wh 提示:(充电达到设定额度随机送积分)
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">每日充值</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />元 提示:(充值达到设定额度随机送积分)
+                        <span class="admin_note"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">分享一次送多少积分：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span class="admin_note">0为不限制</span>
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <div class="external-event navy-bg ui-draggable">基本设置</div>
+                <tr>
+                    <td width="200" align="right">会员每日第一次登录</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">手机认证通过</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">邮箱认证通过</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">新注册会员赠送</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">绑定微信</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">绑定微博</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">分享到朋友圈或微博</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">积分代替名词</td>
+                    <td width="5">
+                        <td>
+                            <input name="id[]" type="hidden" value="" />
+                            <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> (如：个、只、把等，默认为“点”)
+                        </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">积分量词</td>
+                    <td width="5">
+                        <td>
+                            <input name="id[]" type="hidden" value="" />
+                            <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> (如：铜板、元宝等，默认为“积分”)
+                        </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">上传个人头像</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">完善个人资料</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">没充值1元增加积分</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200" align="right">分享一次增加积分</td>
+                    <td width="5">
+                        <select name="operation[]" style="font-size:12px;">
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input name="id[]" type="hidden" value="" />
+                        <input name="value[]" type="text" class="input_text_50 form-control" value="" maxlength="4" /> 点积分
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <div class="external-event navy-bg ui-draggable">充值设置</div>
+                <tr>
+                    <td align="right" width="200">充值比例:1元等于:：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />积分
+                        <span class="admin_note">0为不限制</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" width="200">充值最低余额：</td>
+                    <td>
+                        <input name="per_refresh_resume_space" type="text" class="input_text_150 form-control" value="0" maxlength="10" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" /> 元
+                        <span class="admin_note">0为不限制</span>
+                    </td>
+                </tr>
+            </table>
+            <input name="submit" type="submit" class="btn btn-w-m btn-primary" value="保存修改" />
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

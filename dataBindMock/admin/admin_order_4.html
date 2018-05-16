@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="admin_main_nr_dbox">
+        <div class="pagetit">
+            <div class="ptit"> 上海订单总报表</div>
+            <div class="topnav">
+                <a href="?act=ec_sh_order" class="select"><u>上海</u></a>
+                <a href="?act=ec_js_order"><u>江苏</u></a>
+                <a href="?act=ec_gd_order"><u>广东</u></a>
+                <a href="?act=ec_sc_order"><u>四川</u></a>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="seltpye_y" style="overflow: auto;">
+            <div id="main" style="width:70%; height:700px; float: left;"></div>
+            <div class="mm_right">
+                <div class="mm_right_bb">
+                    <div class="mm_right_time">历史总报表</div>
+                    <ul>
+                        <li class="tits">地区</li>
+                        <li>徐汇区</li>
+                        <li>松江区</li>
+                        <li>浦东新区</li>
+                        <li>闵行区</li>
+                    </ul>
+                    <ul>
+                        <li class="tits">累计消费<span>（元）</span></li>
+                        <li>15118.82</li>
+                        <li>178410.21</li>
+                        <li>22068.34</li>
+                        <li>42920.75</li>
+                    </ul>
+                    <ul>
+                        <li class="tits">消耗电量<span>（KW）</span></li>
+                        <li>18381.12</li>
+                        <li>8173.42</li>
+                        <li>24952.48</li>
+                        <li>42210.99</li>
+                    </ul>
+                    <ul>
+                        <li class="tits">历史订单<span>（笔）</span></li>
+                        <li>991</li>
+                        <li>2540</li>
+                        <li>466</li>
+                        <li>714</li>
+                    </ul>
+                    <div class="mm_right_tj">
+                        <ul>
+                            <li>累计</li>
+                            <li>258518.12</li>
+                            <li>93718.01</li>
+                            <li>4711</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mm_right_ss">
+                    <div class="mm_right_ss_tit">充电运营时间检索</div>
+                    <div class="mm_right_ss_m">
+                        <form id="formseh" name="formseh" method="get" action="">
+                            <input name="starttime" type="text" class="timesbtnl date_input" maxlength="10" />
+                            <input name="deadline" type="text" class="timesbtnr date_input" maxlength="10" />
+                            <input name="act" type="hidden" value="ec_sh_order" />
+                            <input type="submit" id="sub2" value="查询" class="timessub" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- -->
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript">
+     require.config({
+        packages: [{
+            name: 'echarts',
+            location: 'echarts/js/src',
+            main: 'echarts'
+        }, {
+            name: 'zrender',
+            location: 'echarts/js/zrender/src',
+            main: 'zrender'
+        }]
+    });
+    require(
+        [
+            'echarts',
+            'echarts/chart/map',
+        ],
+        function(echarts) {
+
+            require('echarts/util/mapData/params').params.SH = {
+                getGeoJson: function(callback) {
+                    $.getJSON('echarts/sss.json', callback);
+                }
+            };
+
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // 数据
+            var option = {
+                title: {
+                    itemGap: 15,
+                    // x:'center',
+                    text: '上海市辖区订单报表',
+                    textStyle: {
+                        color: '#374568',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'microsoft yahei',
+                        fontSize: 20
+                    },
+                    subtext: '历史总报表',
+                    subtextStyle: {
+                        color: '#666',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontFamily: 'microsoft yahei',
+                        fontSize: 16
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        var res = params.name + '<br/>';
+                        var myseries = option.series;
+                        for (var i = 0; i < myseries.length; i++) {
+                            res += myseries[i].name;
+                            for (var j = 0; j < myseries[i].data.length; j++) {
+                                if (myseries[i].data[j].name == params.name) {
+                                    res += ' : ' + myseries[i].data[j].value;
+                                }
+                            }
+                            res += '&nbsp;' + myseries[i].dw + '</br>';
+                        }
+                        return res;
+                    }
+                },
+                dataRange: {
+                    min: 10000,
+                    max: 50000,
+                    text: ['高', '低'],
+                    realtime: true,
+                    calculable: false,
+                    color: ['#013985', '#3374c4', '#68aafc']
+                },
+                toolbox: {
+                    show: false,
+                    orient: 'vertical',
+                    x: 'right',
+                    y: 'center',
+                    feature: {
+                        mark: {
+                            show: true
+                        },
+                        dataView: {
+                            show: true,
+                            readOnly: false
+                        },
+                        restore: {
+                            show: true
+                        },
+                        saveAsImage: {
+                            show: true
+                        }
+                    }
+                },
+                roamController: {
+                    show: false,
+                    x: 'right',
+                    mapTypeControl: {
+                        'SH': true
+                    }
+                },
+
+                series: [{
+                        name: '累计消费',
+                        dw: '元',
+                        type: 'map',
+                        mapType: 'SH',
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: true,
+                                    textStyle: {
+                                        color: "#ddd"
+                                    }
+                                },
+                                areaStyle: {
+                                    color: "#dcecff"
+                                },
+                                borderColor: '#fff'
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true
+                                }
+                            }
+                        },
+                        data: [{
+                            name: '徐汇区',
+                            value: 15118.82,
+                            dw: "元"
+                        }, {
+                            name: '松江区',
+                            value: 178410.21,
+                            dw: "元"
+                        }, {
+                            name: '浦东新区',
+                            value: 22068.34,
+                            dw: "元"
+                        }, {
+                            name: '闵行区',
+                            value: 42920.75,
+                            dw: "元"
+                        }, ]
+                    }, {
+                        name: '消耗电量',
+                        dw: 'KW',
+                        type: 'map',
+                        mapType: 'SH',
+
+                        data: [{
+                            name: '徐汇区',
+                            value: 18381.12,
+                            dw: "KW"
+                        }, {
+                            name: '松江区',
+                            value: 8173.42,
+                            dw: "KW"
+                        }, {
+                            name: '浦东新区',
+                            value: 24952.48,
+                            dw: "KW"
+                        }, {
+                            name: '闵行区',
+                            value: 42210.99,
+                            dw: "KW"
+                        }, ]
+                    }, {
+                        name: '历史订单',
+                        dw: '笔',
+                        type: 'map',
+                        mapType: 'SH',
+                        data: [{
+                            name: '徐汇区',
+                            value: 991,
+                            dw: "笔"
+                        }, {
+                            name: '松江区',
+                            value: 2540,
+                            dw: "笔"
+                        }, {
+                            name: '浦东新区',
+                            value: 466,
+                            dw: "笔"
+                        }, {
+                            name: '闵行区',
+                            value: 714,
+                            dw: "笔"
+                        }, ]
+                    }
+
+                ]
+            };
+            myChart.setOption(option)
+        }
+    );
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

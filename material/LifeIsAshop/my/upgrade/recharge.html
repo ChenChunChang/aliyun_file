@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"    name="viewport">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+	<title>订单详情</title>
+	<link rel="stylesheet" type="text/css" href="css/h_upgrade.css">
+</head>
+<body>
+	<div class="upgrade_wrap h_bg">
+	<!-- 头部 -->
+		<div class="h_upHade">
+			<a href="upgradeText.html"><img src="img/return.png"></a>
+			<span>订单详情</span>
+		</div>
+	<!-- 商品 -->
+		<div class="h_commodity">
+			<p><span class="h_purchase">购买商品</span><span class="h_payment">待付款</span></p>
+			<div class="h_details">
+				<img src="img/Diam_vip.png" class="h_v">
+				<span>
+					<a class="h_a1">升级成为VIP会员</a><br>
+					<a class="h_a2">期限为一年</a><br>
+					<a class="h_a3">￥100</a>
+				</span>
+			</div>
+		</div>
+	<!-- 确定 -->
+	<div class="h_btnC">
+		<button class="h_commBtn">立即支付</button>
+	</div>
+	
+	<div class="h_patPwd">
+			<div class="password">
+				<p class="h_pwd">钱包密码</p>
+				<p class="h_money">￥55</p>
+				<p class="h_password">
+					<span><input type="password"></span>
+					<span><input type="password"></span>
+					<span><input type="password"></span>
+					<span><input type="password"></span>
+					<span><input type="password"></span>
+					<span class="borderR"><input type="password"></span>
+				</p>
+				<p class="h_button">
+					<input type="button" value="取消">
+					<input type="button" value="付款">
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function(){
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	//获取支付按钮
+	var $payBtn = $(".h_btnC button");
+	//获取支付页面
+	var $h_patPwd = $(".h_patPwd");
+	$payBtn.click(function(){
+		$h_patPwd.show();
+	})
+
+	// 获取 取消支付按钮
+	var $pwdBtn = $(".h_patPwd .password .h_button input");
+	//获取密码框
+	var $pwd = $(".h_patPwd .password .h_password span input")
+	$pwdBtn.eq(0).click(function(){
+		$h_patPwd.hide();
+	})
+	$pwdBtn.eq(1).click(function(){
+
+		for(var i = 0; i < $pwd.length; i++){
+			if($pwd.eq(i).val() ==""){
+				alert("密码不能为空，必须有6位数！");
+				return;
+			}
+			
+			$(window).attr("location","succeed.html");
+			
+		}
+	})
+</script>
+</html>

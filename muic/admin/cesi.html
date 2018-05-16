@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../mui/css/mui.min.css" />
+	<script src="../mui/js/mui.min.js"></script>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_440137_pwr1z2pd8bp22o6r.css" />
+</head>
+<body>
+	<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+  <div class="mui-scroll">
+    <!--数据列表-->
+    <ul class="mui-table-view mui-table-view-chevron">
+     
+    </ul>
+  </div>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+mui.init({
+  pullRefresh : {
+    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+    down : {
+      auto: true,//可选,默认false.首次加载自动下拉刷新一次
+    },
+    up : {
+      auto: true //可选,默认false.首次加载自动上拉加载一次
+    }
+  }
+});
+</script>
+</html>

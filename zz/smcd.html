@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>微信充电-任我充V2</title>
+<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,shrink-to-fit=no,user-scalable=no,minimal-ui" name="viewport">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<script src="js/rem.js"></script>
+<script src="js/zepto.min.js"></script>
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/members.css">
+</head>
+
+<body>
+<div class="content-wrap">
+	<div class="sm-txt">
+		您扫描的桩编号为:000-111-222<br/> 
+		电单价：1.0元/KW/H
+	</div>
+	<form action="#" id="form1" name="form1" method="post">
+		<div class="sm-bt">请选择充电枪口:</div>
+		<div class="sm-charge">
+			<input type="hidden" name="charger_num" id="charger_num" value="1"/>
+			<ul>
+				<li><span class="active" value="1">1号电枪</span></li>
+				<li><span value="2">2号电枪</span></li>
+			</ul>
+		</div>
+		<div class="sm-bt">请充值充电费用:</div>
+		<div class="sm-money">
+			<ul>
+				<li><span class="active" value="30">30元</span></li>
+				<li><span value="50">50元</span></li>
+				<li><span value="100">100元</span></li>				
+			</ul>
+		</div>
+		<input type="hidden" name="money" id="money" value="30"/>
+		<div class="sm-bt">其他金额(元)：</div>
+		<div class="sm-qt"><input name="qtmoney" type="number" class="input_qt" maxlength="5" value=""></div>
+		<div class="sm-btn"><input name="submit3" type="submit" class="input_btn" value="开启充电" id="updatePassword"></div>
+	</form>
+</div>
+</body>
+<script src="./js/jquery-1.8.3.min.js"></script>
+<script>
+$(".sm-charge ul li span").on("click", function() {
+	$("#charger_num").val($(this).attr("value"));
+	$(".input_qt").css({"border":"2px solid #EEE","color":"#D1D1D1","background":"#FFF"})
+	$(this).addClass("active").parent().siblings().children("span").removeClass("active");
+});
+$(".sm-money ul li span").on("click", function() {
+	$("#money").val($(this).attr("value"));
+	$(".input_qt").css({"border":"2px solid #EEE","color":"#D1D1D1","background":"#FFF"})
+	$(this).addClass("active").parent().siblings().children("span").removeClass("active");
+});
+$(".input_qt").on("focus",function(){
+	$("#money").val($(this).attr("value"));
+	$(this).css({"border":"2px solid #40C280","color":"#FFF","background":"#40C280"});
+	$(".sm-money ul li span").removeClass("active");
+});
+$(".input_qt").on("input",function(){
+	$("#money").val($(this).attr("value"));
+	$(this).css({"border":"2px solid #40C280","color":"#FFF","background":"#40C280"});
+	$(".sm-money ul li span").removeClass("active");
+});
+</script>
+</html>

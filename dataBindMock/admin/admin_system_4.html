@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .form-control{
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>短信设置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act='">配置</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=testing'">测试</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=email_set_templates'">发送规则</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=set_tpl'">短信模板</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=meal'">短信套餐</button>
+        </div>
+        <form class="ibox-content" action="?act=set_save" method="post" name="form1" id="form1">
+            <input type="hidden" name="hiddentoken" value="28643e7a" />
+            <div class="external-event navy-bg ui-draggable">设置</div>
+            <table class="table">
+                <tr>
+                    <td width="121" align="right">开启短信发送：</td>
+                    <td width="560">
+                        <label>
+                            <input name="open" type="radio" value="1" checked="checked" /> 开启</label>
+                        <label>
+                            <input name="open" type="radio" value="0" />关闭</label>
+                    </td>
+                </tr>
+            </table>
+            <div class="external-event navy-bg ui-draggable">验证码类: <span class="admin_note" style="color: rgb(0,0,0);">用于发送验证码类的短信接口</span></div>
+            <table class="table">
+                <tr>
+                    <td width="121" align="right">帐户名：</td>
+                    <td width="560">
+                        <input name="captcha_sms_name" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">密钥：</td>
+                    <td>
+                        <input name="
+                        aptcha_sms_key" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+            </table>
+            <div class="external-event navy-bg ui-draggable">通知类: <span class="admin_note" style="color: rgb(0,0,0);">用于发送通知类的短信接口</span></div>
+            <table class="table">
+                <tr>
+                    <td width="121" align="right">帐户名：</td>
+                    <td width="560">
+                        <input name="notice_sms_name" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">密钥：</td>
+                    <td>
+                        <input name="notice_sms_key" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+            </table>
+            <div class="external-event navy-bg ui-draggable">其他类: <span class="admin_note" style="color: rgb(0,0,0);">其他类型的短信接口</span></div>
+            <table class="table">
+                <tr>
+                    <td width="121" align="right">帐户名：</td>
+                    <td width="560">
+                        <input name="free_sms_name" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">密钥：</td>
+                    <td>
+                        <input name="free_sms_key" type="text" class="form-control" value="gccd" />
+                    </td>
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <td width="120" align="right">&nbsp;</td>
+                    <td>
+                        <input name="save" type="submit" class="btn btn-w-m btn-primary" value="保存" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

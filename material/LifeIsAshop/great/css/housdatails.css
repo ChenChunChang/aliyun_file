@@ -1,0 +1,289 @@
+/* -----------detial------------- */
+*{
+    margin:0;
+    padding:0;
+}
+#vipDwrap {
+    width:7.5rem;
+    height:10.0rem;
+}
+
+#vipDwrap header {
+    width: 7.5rem;
+    height: 0.8rem;
+    padding-top:0.2rem;
+    position:fixed;
+    left:0;
+    top:0;
+    z-index:999;
+
+}
+
+#vipDwrap header .vipDwrap1{
+    position:absolute;
+    left:0.1rem;
+    width:0.4rem;
+}
+#vipDwrap header .vipDwrap2{
+    position:absolute;
+    right: 0.9rem;
+
+}
+#vipDwrap header .vipDwrap3{
+    position:absolute;
+    right:0.1rem;
+
+}
+#vipDwrap header img{
+    width:0.6rem;
+    height:0.6rem;
+}
+
+#vipDwrap .vipDCon{
+    width:7.5rem;
+    height:9.2rem;
+}
+
+#vipDwrap .vipDCon img{
+    width:7.5rem;
+    height:7.2rem;
+    position:relative;
+}
+#vipDwrap .vipDCon p{
+    margin-bottom: 0.15rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+}
+
+#vipDwrap .vipDCon p:nth-of-type(1){
+    font-size:0.3rem;
+}
+#vipDwrap .vipDCon p:nth-of-type(2){
+    font-size:0.26rem;
+    color:#6F6F6F;
+    display: flex;
+    justify-content: space-between;
+}
+#vipDwrap .vipDCon p:nth-of-type(2) span:nth-of-type(1){
+    font-size:0.26rem;
+    color:red;
+}
+#vipDwrap .vipDCon p:nth-of-type(2) span:nth-of-type(2){
+    width:4.0rem;
+}
+#vipDwrap .vipDCon p:nth-of-type(3){
+    font-size:0.26rem;
+    color:#6F6F6F;
+    display: flex;
+    justify-content: space-between;
+}
+/* -----------detial------------- */
+
+
+/* ----------vipTab------------- */
+.vipTab ul,li,a{
+    text-decoration:none;
+    list-style:none;
+}
+.vipTab .inner ul{
+    border-bottom: 0.01rem solid #D9D9D9;
+    font-size:0.30rem;
+    display: flex;
+    justify-content: space-around;
+}
+.vipTab ul li a{
+    color:#595959;
+}
+.select{
+    padding-bottom: 0.2rem;
+    border-bottom:0.05rem solid red;
+}
+.vipTab{
+    width:7.5rem;
+    height:100%;
+}
+
+.vipTab .vipTabC1{
+    width:7.5rem;
+}
+
+.vipTab .vipTabC1:nth-child(2) ul li{
+    margin-bottom:0.2rem;
+    padding-bottom:0.2rem;
+    border-bottom:0.01rem solid #eee;
+}
+
+.vipTab .vipTabC1:nth-child(2) p:nth-child(1){
+    font-size:0.32rem;
+    display: flex;
+    justify-content: space-between;;
+}
+.vipTab .vipTabC1:nth-child(2) p:nth-child(2){
+    font-size:0.32rem;
+}
+
+.vipTab .vipTabC1:nth-child(1) img{
+    width:7.5rem;
+}
+
+/* ----------vipTab------------- */
+
+/* -----------vipShop-------------- */
+.vipShop{
+    width:7.5rem;
+    height:1.0rem;
+    position:fixed;
+    left:0;
+    bottom:0;
+    z-index:999;
+    // border-top:0.01rem solid red;
+    background:#F2F2F2;
+}
+
+.vipShop .vipShopImg1{
+    width:0.7rem;
+    height:0.7rem;
+    position:absolute;
+    left:0.2rem;
+    top:0.2rem;
+}
+
+.vipShop .vipShopImg2{
+    width:2.2rem;
+    height:0.6rem;
+    position:absolute;
+    right:2.80rem;
+    top:0.3rem;
+}
+
+.vipShop .vipShopImg3{
+    width:2.2rem;
+    height:0.6rem;
+    position:absolute;
+    right:0.2rem;
+    top:0.3rem;
+}
+/* -----------vipShop-------------- */
+.join_zhe{
+    background-color: rgba(0,0,0,0.5);
+    width: 7.5rem;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    font-size: 0.3rem;
+    display: none;
+}
+.join_zhe .commodity{
+    width: 7.5rem;
+    height: 6.3rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.join_zhe .commodity .foodPrice{
+    padding: 0.2rem;
+    overflow: hidden;
+}
+.join_zhe .commodity .foodImg{
+    width: 1.82rem;
+    height: 1.82rem;
+    display: inline-block;
+    border: 0.01rem solid #ccc;
+    float: left;
+    margin-right: 0.2rem;
+}
+.join_zhe .commodity .foodImg img{
+    width: 1.82rem;
+    height: 1.82rem;
+} 
+.join_zhe .commodity .guan{
+    width: 0.3rem;
+    height: 0.3rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+}
+.join_zhe .commodity .h_Vprice{
+    color: #ccc;
+}
+.join_zhe .commodity .h_Vprice b{
+    color: red;
+    margin-right: 0.2rem;
+}
+.join_zhe .commodity .standard{
+    padding: 0.1rem 0.2rem;
+    color: #ccc;
+    box-sizing: border-box;
+}
+.join_zhe .commodity .weight{
+    padding: 0.1rem 0.2rem;
+    box-sizing: border-box;
+}
+.join_zhe .commodity .weight span:nth-child(1){
+    display: inline-block;
+    width: 1.23rem;
+    height: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    background-color: #f29004;
+    color: white;
+}
+.join_zhe .commodity .weight span:nth-child(2){
+    display: inline-block;
+    width: 1.23rem;
+    height: 0.5rem;
+    text-align: center;
+    line-height: 0.5rem;
+    border: 0.01rem solid #dbdbdb;
+    color: #666666;
+    margin-left: 0.5rem;
+}
+.join_zhe .commodity .quantity{
+    padding: 0.1rem 0.2rem;
+    box-sizing: border-box;
+}
+.join_zhe .commodity .quantity span:nth-child(1){
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    border: 0.01rem solid #dbdbdb;
+    text-align: center;
+    font-size: 0.30rem;
+    margin-right: 0.1rem;
+}
+.join_zhe .commodity .quantity span:nth-child(2){
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.4rem;
+    border: 0.01rem solid #dbdbdb;
+    text-align: center;
+    font-size: 0.30rem;
+    margin-right: 0.1rem;
+}
+.join_zhe .commodity .quantity span:nth-child(3){
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    border: 0.01rem solid #dbdbdb;
+    text-align: center;
+    font-size: 0.30rem;
+}
+.join_zhe .commodity button{
+    width: 2.5rem;
+    height: 0.7rem;
+    background-color: #f29004;
+    border: none;
+    outline: none;
+    border-radius: 0.05rem;
+    display: black;
+    color: white;
+    font-size: 0.32rem;
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

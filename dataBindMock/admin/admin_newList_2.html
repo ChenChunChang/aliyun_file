@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/plugins/markdown/bootstrap-markdown.min.css" />
+    <style type="text/css">
+    #color_box {
+        width: 22px;
+        height: 22px;
+        border: 1px #88A7B9 solid;
+        background-image: url(./images/color_box_bg.gif);
+        cursor: pointer;
+    }
+    .color_layer{
+        position: relative;
+    }
+    #select_color_box {
+        width: 400px;
+        height: 70px;
+        display: none;
+        position: absolute;
+        left: 28px;
+        top: 0px;
+        border: 1px #999999 solid;
+        background-color: #EFF4F8;
+    }
+
+    #select_color_box a {
+        border: 1px #999999 solid;
+        height: 20px;
+        width: 20px;
+        background-color: #0066CC;
+        float: left;
+        margin-left: 8px;
+        display: inherit;
+    }
+    .color_title,.color_box_close{
+        margin-left: 10px;
+    }
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: auto;
+        text-decoration: underline;
+    }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>添加新闻</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <form class="ibox-content" action="?act=addsave" method="post" enctype="multipart/form-data" name="FormData" id="FormData">
+            <input type="hidden" name="hiddentoken" value="f4feb4b0" />
+            <table class="table">
+                <tr>
+                    <td width="100" align="right" style=" border-top:0px"><span style="color:#FF3300; font-weight:bold">*</span>新闻标题：</td>
+                    <td width="400" style=" border-top:0px">
+                        <input class="form-control" name="title" type="text" id="title" style="width:400px;" />
+                    </td>
+                    <td style=" border-top:0px">
+                        <div class="color_layer">
+                            <div id="color_box" onclick="color_box_display()"></div>
+                            <input type="hidden" name="tit_color" id="tit_color">
+                            <div id="select_color_box">
+                                <div class="color_title">选择标题颜色：</div>
+                                <div class="color_box_close" onclick="color_box_display()">关闭</div>
+                                <div class="clear"></div>
+                                <a onclick="set_color('');color_box_display()" href="javascript:void(0);" style="background-image:url(images/color_box_bg.gif)"></a>
+                                <a onclick="set_color('#000000');color_box_display()" href="javascript:void(0);" style=" background-color:#000000"></a>
+                                <a onclick="set_color('#333333');color_box_display()" href="javascript:void(0);" style=" background-color:#333333"></a>
+                                <a onclick="set_color('#666666');color_box_display()" href="javascript:void(0);" style=" background-color:#666666"></a>
+                                <a onclick="set_color('#000099');color_box_display()" href="javascript:void(0);" style=" background-color:#000099"></a>
+                                <a onclick="set_color('#0066FF');color_box_display()" href="javascript:void(0);" style=" background-color:#0066FF"></a>
+                                <a onclick="set_color('#9900FF');color_box_display()" href="javascript:void(0);" style=" background-color:#9900FF"></a>
+                                <a onclick="set_color('#990000');color_box_display()" href="javascript:void(0);" style=" background-color:#990000"></a>
+                                <a onclick="set_color('#FF0000');color_box_display()" href="javascript:void(0);" style=" background-color:#FF0000"></a>
+                                <a onclick="set_color('#FF6600');color_box_display()" href="javascript:void(0);" style=" background-color:#FF6600"></a>
+                                <a onclick="set_color('#669900');color_box_display()" href="javascript:void(0);" style=" background-color:#669900"></a>
+                                <a onclick="set_color('#336600');color_box_display()" href="javascript:void(0);" style=" background-color:#336600"></a>
+                                <div class="clear"></div>
+                            </div>
+                            <script type="text/javascript">
+                            function set_color(x) {
+                                var rgb = x;
+                                if (rgb == "") {
+                                    document.getElementById('color_box').style.background = 'url(images/color_box_bg.gif)';
+                                } else {
+                                    document.getElementById('color_box').style.background = rgb;
+                                }
+                                //alert(rgb);
+                                document.getElementById('tit_color').value = rgb;
+                            }
+
+                            function color_box_display() {
+                                target = document.getElementById('select_color_box');
+                                if (target.style.display == "block") {
+                                    target.style.display = "none";
+                                } else {
+                                    target.style.display = "block";
+                                }
+                                //document.bgColor =rgb;
+                            }
+                            </script>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right"><span style="color:#FF3300; font-weight:bold">*</span>新闻分类：</td>
+                    <td colspan="2">
+                        <div style="z-index: 99999;">
+                            <input name="type_id" id="type_id" type="hidden" value="" />
+                            <select class="form-control" id="menu1" class="menu" style="width:200px;">
+                                <option value="0">请选择</option>
+                                <option value="1">公司动态</option>
+                                <option value="2">行业资讯</option>
+                                <option value="3">行业资讯</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">缩&nbsp;&nbsp;略&nbsp;&nbsp;图：</td>
+                    <td colspan="2">
+                        <input type="file" name="Small_img" onKeyDown="alert('请点击右侧“浏览”选择您电脑上的图片！');return false" style="height:21px; width:210px; border:1px #999999 solid" />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="row ibox-content">
+                <div class="col-lg-12">
+                    <textarea name="content" data-provide="markdown" rows="10"></textarea>
+                </div>
+                <div class="col-lg-12">
+                    <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" name="Submit" value="确定提交" class="btn btn-w-m btn-primary" />
+                    <input type="reset" name="Submit2" value="重置表单" class="btn btn-w-m btn-primary" />
+                </div>
+            </div>
+            <table class="table">
+                <tr>
+                    <td width="120" align="right">是否显示：</td>
+                    <td width="200">
+                        <label>
+                            <input name="is_display" type="radio" value="1" checked="checked" />显示</label>
+                        <label>
+                            <input type="radio" name="is_display" value="0" /> 不显示</label>
+                    </td>
+                    <td width="120" align="right">文章排序：</td>
+                    <td>
+                        <input name="article_order" type="text" class="form-control" id="article_order" style="width:50px;display:inline-block;" maxlength="8" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        <span>数字越大越靠前</span></td>
+                    <td width="250">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="right">作者：</td>
+                    <td>
+                        <input name="author" type="text" class="form-control" id="author" value="admin" maxlength="20" style="width:150px;" />
+                    </td>
+                    <td align="right">标题加粗：</td>
+                    <td>
+                        <input name="tit_b" type="checkbox" id="tit_b" value="1" /> 加粗
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="right">来源：</td>
+                    <td>
+                        <input name="source" type="text" class="form-control" id="source" maxlength="50" style="width:150px;" />
+                    </td>
+                    <td align="right">外部链接：</td>
+                    <td>
+                        <input name="is_url" type="text" class="form-control" id="is_url" value="" maxlength="100" style="width:150px;" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="right">文章属性：</td>
+                    <td colspan="4">
+                        <label>
+                            <input name="focos" type="radio" value="">普通</label>&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="focos" type="radio" value="">头条</label>
+                        <label>
+                            <input name="focos" type="radio" value="">焦点</label>
+                        <label>
+                            <input name="focos" type="radio" value="">推荐</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">
+                        keywords：</td>
+                    <td colspan="4">
+                        <input name="seo_keywords" type="text" class="form-control" id="keywords" value="" maxlength="30" style="width:400px;" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">description：</td>
+                    <td colspan="4">
+                        <textarea name="seo_description" class="input_textarea_400" id="description"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<script type="text/javascript" src="js/plugins/markdown/markdown.js"></script>
+<script type="text/javascript" src="js/plugins/markdown/to-markdown.js"></script>
+<script type="text/javascript" src="js/plugins/markdown/bootstrap-markdown.js"></script>
+<script type="text/javascript" src="js/plugins/markdown/bootstrap-markdown.zh.js"></script>
+
+</html>

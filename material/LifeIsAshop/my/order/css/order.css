@@ -1,0 +1,546 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+input, button {
+    border: none;
+    outline: none;
+}
+.container {
+    width: 7.5rem;
+    margin: 0 auto;
+    position: relative;
+}
+.header {
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 100%;
+    background-color: #f29004;
+    text-align: center;
+    color: #fff;
+    font-size: 0.36rem;
+}
+.header img {
+    float: left;
+    padding-left: 0.2rem;
+    padding-top: 0.2rem;
+    width: 0.2rem;
+    height: 0.4rem;
+}
+.header span {
+    margin-left: -0.3rem;
+}
+
+/*头部*/
+.info li {
+    font-size: 0.3rem;
+    line-height: 0.8rem;
+    text-indent: 0.2rem;
+}
+.space {
+    height: 0.2rem;
+    background-color: #f2f2f2;
+}
+.detailed {
+    padding: 0.25rem 0.2rem;
+}
+.lf {
+    float: left;
+}
+.rg {
+    float: right;
+}
+.detailed li {
+    padding: 0.2rem 0.0rem;
+    border-bottom: 0.01rem solid #ccc;
+}
+.detailed li span {
+    font-size: 0.28rem;
+}
+.clear {
+    overflow: hidden;
+}
+.goodImg {
+    width: 1.4rem;
+    height: 1.4rem;
+    background: url("../img/nut.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+.goods_inst {
+    margin-left: 0.2rem;
+    width: 73%;
+}
+.goods_inst p {
+    font-size: 0.3rem;
+    padding-bottom: 0.2rem;
+}
+.goods_inst span {
+    font-size: 0.26rem;
+}
+.detailed input {
+    height: 0.5rem;
+    border: none;
+    margin-left: 0.2rem;
+    width: 75%;
+}
+.footer  p {
+    font-size: 0.28rem;
+}
+.footer button {
+    width: 6.4rem;
+    height: 0.9rem;
+    background: url("../img/button4.png") 0 0 no-repeat;
+    background-size: 100%;
+    color: #fff;
+    font-size: 0.34rem;
+    line-height: 0.9rem;
+    text-align: center;
+    border: none;
+}
+
+/* 评价 */
+.h_evaluateWrap {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-family: "微软雅黑";
+    font-size: 0.3rem;
+}
+a {
+    text-decoration: none;
+}
+
+/*头部*/
+.h_dasHade {
+    width: 100%;
+    height: 0.8rem;
+    background-color: #f29004;
+    font-size: 0.36rem;
+    text-align: center;
+    line-height: 0.8rem;
+    color: white;
+}
+.h_dasHade img {
+    width: 0.2rem;
+    height: 0.35rem;
+    position: absolute;
+    left: 0.2rem;
+    top: 0.2rem;
+}
+.h_commodityP {
+    color: #666666;
+    width: 7.11rem;
+    height: 0.79rem;
+    font-size: 0.28rem;
+    border-bottom: 1px solid #ccc;
+    line-height: 0.79rem;
+    margin: auto;
+}
+.h_commodityDiv {
+    width: 7.11rem;
+    height: 1.9rem;
+    font-size: 0.32rem;
+    padding-top: 0.2rem;            /*padding-bottom: 0.2rem;*/
+    margin: auto;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+.h_commodityDiv img {
+    width: 1.43rem;
+    height: 1.43rem;
+    float: left;
+}
+.h_describeP {
+    float: left;
+    margin-left: 0.2rem;
+    width: 5.37rem;
+}
+.h_describeP .standard {
+    color: #757575;
+    font-size: 0.28rem;
+}
+.h_describeP .price {
+    color: red;
+}
+.h_describeP .number {
+    float: right;
+}
+.h_ratingP {
+    width: 7.11rem;
+    color: #666666;
+    font-size: 0.3rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    margin: auto;
+}
+.h_ratingP .h_rigImgs {
+    float: right;
+}
+.h_ratingP img {
+    width: 0.32rem;
+    height: 0.34rem;
+}
+.h_characterT {
+    width: 7.09rem;
+    height: 1.78rem;
+    border: 1px solid #ccc;
+    margin: auto;
+}
+.h_characterT textarea {
+    width: 7.09rem;
+    height: 1.78rem;
+    outline: none;
+    border: 0;
+    background-color: #f2f2f2;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+.h_evaluateWrap button {
+    width: 6.41rem;
+    height: 0.9rem;
+    background-color: #f29004;
+    color: white;
+    font-size: 0.32rem;
+    text-align: center;
+    border: 0;
+    outline: none;
+    margin: auto;
+    display: block;
+    border-radius: 0.15rem;
+    margin-top: 2rem;
+}
+
+/* 去评价 */
+#can_reason .can_top {
+    line-height: 0.65rem;
+    height: 0.65rem;
+    background-color: #f2f2f2;
+}
+#can_reason .can_top span {
+    font-size: 0.3rem;
+    color: #999999;
+}
+#can_reason .can_top img {
+    padding-right: 0.35rem;
+    padding-top: 0.2rem;
+    width: 0.2rem;
+}
+.cancel_del .cancel_data li {
+    padding: 0.3rem 0;
+    height: 0.55rem;
+}
+.cancel_del .cancel_data li span {
+    margin-top: 0.1rem;
+    color: #333333;
+    font-size: 0.3rem;
+}
+.cancel_del .cancel_data li input {
+    display: block;
+    height: 0.55rem;
+    font-size: 0.3rem;
+    margin-left: 0.2rem;
+    width: 2.2rem;
+}
+.cancel_del .cancel_data li #btn {
+    width: 0.55rem;
+    height: 0.62rem;
+    background: url("img/v1.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+    border: none;
+    position: relative;
+    outline: none;
+}
+.cancel_del .cancel_data li #btn .t_re {
+    width: 2.82rem;
+    height: 2.2rem;
+    position: absolute;
+    top: 0.63rem;
+    left: -2.25rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: none;
+}
+.cancel_del .cancel_data li #btn .t_re li {
+    padding: 0;
+    font-size: 0.26rem;
+    line-height: 0.52rem;
+}
+.cancel_del .cancel_data li .sendBtn {
+    margin-left: 0.2rem;
+    margin-top: 0.1rem;
+    font-size: 0.28rem;
+}
+.cancel_del .cancel_data li img {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+#submit {
+    width: 1.6rem;
+    height: 0.55rem;
+    background: url("img/button.png") 0 0 no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+    text-align: center;
+    border: none;
+}
+.cancel {
+    font-size: 0.28rem;
+    display: inline-block;
+    width: 1.45rem;
+    height: 0.5rem;
+    border-radius: 0.06rem;
+    border: 0.01rem solid #999999;
+    color: #b8b8b8;
+    margin-right: 0.3rem;
+    line-height: 0.5rem;
+    text-align: center;
+    margin-top: -0.08rem;
+    cursor: pointer;
+}
+#mask {
+    width: 7.5rem;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #ccc;
+    opacity: 0.5;
+}
+#can_reason {
+    position: absolute;
+    left: 0.35rem;
+    top: 1.45rem;
+    width: 6.55rem;
+    height: 7.8rem;
+    background-color: #fff;
+    padding: 0.25rem 0.2rem;
+}
+
+/*选择*/
+
+/*订单*/
+.yw-Wrap {
+    background: #f2f2f2;
+}
+.yw-center {
+    width: 7.5rem;
+    background: white;
+    height: 1.0rem;
+    font-size: 0.3rem;
+    margin: auto;
+}
+.yw-center ul {
+    overflow: hidden;
+    padding-top: 0.3rem;
+}
+.yw-center ul li {
+    margin-left: 0.4rem;
+    list-style: none;
+    float: left;
+}
+.yw-center-Img {
+    width: 7.5rem;
+    margin-top: 0.3rem;
+    background: white;
+    margin: auto;
+    margin-top: 0.2rem;
+}
+.yw-Img-Top {
+    overflow: hidden;
+    width: 6.6rem;
+    border-bottom: 1px solid gray;
+    margin-left: 0.4rem;
+    font-size: 0.25rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
+.yw-Img-Top span:nth-child(2) {
+    color: #F29004;
+    float: right;
+}
+.yw-Img-center {
+    overflow: hidden;
+    width: 6.6rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    margin-left: 0.4rem;
+    border-bottom: 1px solid gray;
+}
+.yw-Img-center .yw-img1 {
+    float: left;
+    width: 1.44rem;
+    height: 1.36rem;
+}
+.yw-Img-center .yw-Img-span1 {
+    display: inline-block;
+    width: 4rem;
+    font-size: 0.3rem;
+    float: left;
+    margin-left: 0.2rem;
+    margin-top: 0.1rem;
+    color: black;
+}
+.yw-Img-center .yw-Img-span2 {
+    display: inline-block;
+    width: 4.8rem;
+    float: left;
+    font-size: 0.3rem;
+    color: gray;
+    margin-left: 0.2rem;
+    margin-top: 0.1rem;
+}
+.yw-Img-center .yw-Img-span3 {
+    float: right;
+    font-size: 0.3rem;
+    color: black;
+}
+.yw-Img-bottom {
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    border-bottom: 1px solid gray;
+}
+.yw-Img-bottom p {
+    line-height: 0.2rem;
+    color: #757575;            /*width: 6.6rem;*/
+    margin-left: .4rem;
+    font-size: 0.3rem;
+}
+.yw-Img-bottom p button:nth-child(1) {
+    margin-left: 0.6rem;            /*outline: none;*/
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #999999;
+    width: 1.71rem;
+    height: 0.63rem;
+    font-size: 0.3rem;
+}
+.yw-Img-bottom p button:nth-child(2) {
+
+    /*outline: none;*/
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #F29106;
+    color: #F29106;
+    width: 1.71rem;
+    height: 0.63rem;
+    font-size: 0.3rem;
+}
+.bottomLi {
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #F29004;
+    border-width: 0.05rem;
+}
+a {
+    text-decoration: none;
+    color: #f39715;
+}
+
+/* 订单密码支付 */
+.h_patPwd{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.h_patPwd .password{
+    width: 6.6rem;
+    height: 4.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    border-radius: 0.15rem;
+}
+.h_patPwd .password .h_pwd{
+    width: 6.35rem;
+    color: black;
+    text-align: center;
+    font-size: 0.32rem;
+    margin: auto;
+    border-bottom: 1px solid #ccc;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+.h_patPwd .password .h_money{
+    width: 6.35rem;
+    color: black;
+    text-align: center;
+    font-size: 0.48rem;
+    margin: auto;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+.h_patPwd .password .h_password{
+    width: 6.35rem;
+    color: black;
+    text-align: center;
+    font-size: 0.48rem;
+    margin: auto;
+    /*padding: 0.2rem;*/
+    box-sizing: border-box;
+    border-radius: 0.1rem;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -o-box;
+    display: -ms-box;
+    display: -moz-box;
+    background-color: #f2f2f2;
+}
+.h_patPwd .password .h_password span{
+    display: block;
+    height: 0.9rem;
+    /*background-color: red;*/
+    border-right: 1px solid #ccc;
+    -webkit-box-flex: 1;
+}
+.h_patPwd .password .h_password .borderR{
+    border-right: 0;
+}
+.h_patPwd .password .h_password span input{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    text-align: center;
+    font-size: 0.6rem;
+}
+.h_patPwd .password .h_button{
+    width: 6.35rem;
+    color: black;
+    font-size: 0.48rem;
+    margin: auto;
+    padding: 0.4rem 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.h_patPwd .password .h_button input{
+    width: 2.5rem;
+    height: 0.85rem;
+    font-size: 0.32rem;
+    border-radius: 0.1rem;
+    border: 0;
+    outline: none;
+    color: white;
+}
+.h_patPwd .password .h_button input:nth-child(1){
+    float: left;
+}
+.h_patPwd .password .h_button input:nth-child(2){
+    float: right;
+    background-color: #f29004;
+}

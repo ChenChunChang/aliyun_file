@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<title>定位</title>
+</head>
+<body>
+	<div class="container">
+		<header class="header">
+			<a href="index.html">
+				<img src="img/back.png">
+			</a>
+			<span>选择城市</span>
+		</header>
+		<div class="marTop"></div>
+		<div>
+			<ul class="nowLoc">
+				<li>当前位置</li>
+				<li>广州市</li>
+				<li>省市列表</li>
+				<li class="ctiy">上海</li>
+				<li class="ctiy">上海郊区</li>
+				<li class="ctiy">安徽</li>
+				<li class="ctiy">江苏</li>
+				<li class="ctiy">湖南</li>
+				<li class="ctiy">河南</li>
+				<li class="ctiy">广西</li>
+				<li class="ctiy">新疆</li>
+				<li class="ctiy">南昌</li>
+				<li class="ctiy">江西</li>
+				<li class="ctiy">福州</li>
+				<li class="ctiy">深圳</li>
+				<li class="ctiy">厦门</li>
+				<li class="ctiy">浙江</li>
+				<li class="ctiy">河源</li>
+				<li class="ctiy">惠州</li>
+
+			</ul>
+		</div>
+		<!-- 导航 -->
+		<!-- <nav class="vipNav">
+			<ul>
+				<li>
+					<a href="index.html">首页</a>
+				</li>
+				<li>
+					<a href="../great/vip.html">会员</a>
+				</li>
+				<li>
+					<a href="../classify/classify_index.html">分类</a>
+				</li>
+				<li>
+					<a href="../shop/shopCart.html">购物车</a>
+				</li>
+				<li>
+					<a href="../login/ywSign.html">我的</a>
+				</li>
+			</ul>
+		</nav> -->
+	</div>
+</body>
+<script type="text/javascript">
+	(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+    input[type="color"] {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        border: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    ::-webkit-color-swatch-wrapper {
+        background: url('images/color.gif') 0 0 no-repeat;
+        background-size: 100%;
+    }
+
+    ::-webkit-color-swatch {
+        display: none;
+    }
+    .form-control{
+        width: 200px;
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>安全设置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=captcha'">验证码</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=filte'">关键字过滤</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=ip'">禁止IP</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=csrf'">CSRF防御</button>
+        </div>
+        <form class="ibox-content" id="form1" name="form1" method="post" action="?act=del_syslog">
+            <input type="hidden" name="hiddentoken" value="b54ba6ee" />
+            <div class="external-event navy-bg ui-draggable">
+                <h3>提示：</h3>
+                <p>
+                    验证码可以避免恶意注册及恶意发布，启用验证码会使得部分操作变得繁琐，建议仅在必需时打开
+                    <br /> 使用 TTF 字体作为验证码文字，把下载的 TTF 英文字体文件上传到 data/font/en 目录下，系统将随机使用里面的字体文件作为验证码的文字
+                    <br /> 使用中文图片验证码前，需要把包含完整中文汉字的 TTF 中文字体文件上传到 data/font/cn 目录下，系统将随机使用里面的字体文件作为验证码的文字
+                    <br />
+                </p>
+            </div>
+        </form>
+        <form class="ibox-content" action="?act=captcha_save" method="post" name="form1" id="form1">
+            <input type="hidden" name="hiddentoken" value="aeec285a" />
+            <div class="external-event navy-bg ui-draggable">启用验证码</div>
+            <table class="table">
+                <tr>
+                    <td width="120" align="right">会员注册：</td>
+                    <td width="210">
+                        <label>
+                            <input name="verify_userreg" type="radio" value="1" checked="checked" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_userreg" type="radio" value="0" />关闭</label>
+                    </td>
+                    <td rowspan="4" valign="top">
+                        <span class="admin_note">验证码可以避免恶意注册及恶意发布，启用验证码会使得部分操作变得繁琐，建议仅在必需时打开</span>
+                        <br />
+                        <div id="v_container" style="width: 150px;height: 40px;"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">会员登录：</td>
+                    <td>
+                        <label>
+                            <input name="verify_userlogin" type="radio" value="1" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_userlogin" type="radio" value="0" checked="checked" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">礼品卡充值：</td>
+                    <td>
+                        <label>
+                            <input name="verify_gifts" type="radio" value="1" checked="checked" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_gifts" type="radio" value="0" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">申请友情链接：</td>
+                    <td>
+                        <label>
+                            <input name="verify_link" type="radio" value="1" checked="checked" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_link" type="radio" value="0" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">找回密码：</td>
+                    <td>
+                        <label>
+                            <input name="verify_getpwd" type="radio" value="1" checked="checked" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_getpwd" type="radio" value="0" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">发表评论：</td>
+                    <td>
+                        <label>
+                            <input name="verify_comment" type="radio" value="1" checked="checked" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_comment" type="radio" value="0" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">后台登录：</td>
+                    <td>
+                        <label>
+                            <input name="verify_adminlogin" type="radio" value="1" /> 开启
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="verify_adminlogin" type="radio" value="0" checked="checked" />关闭</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">&nbsp;</td>
+                    <td height="50" colspan="2">
+                        <input name="submit" type="submit" class="btn btn-w-m btn-primary" value="保存" /> </td>
+                </tr>
+            </table>
+        </form>
+        <form class="ibox-content" id="form2" name="form2" method="post" action="?act=captcha_save">
+            <input type="hidden" name="hiddentoken" value="bb2f1016" />
+            <div class="external-event navy-bg ui-draggable">验证码设置</div>
+            <table class="table">
+                <tr>
+                    <td width="120" height="30" align="right">验证码宽度：</td>
+                    <td>
+                        <input name="captcha_width" type="text" class="form-control" maxlength="3" value="150" />
+                        <span class="admin_note">验证码图片宽度，建议在 60 - 180 范围内取值，0为自适应</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120" height="30" align="right">验证码高度：</td>
+                    <td>
+                        <input name="captcha_height" type="text" class="form-control" maxlength="3" value="40" />
+                        <span class="admin_note">验证码图片高度，建议在 20 - 50 范围内取值，0为自适应</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">文字颜色：</td>
+                    <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="245">
+                                    <input name="captcha_textcolor" id="captcha_textcolor" type="text" class="iColorPicker form-control" onclick="iColorShow('captcha_textcolor','icp_captcha_textcolor')" maxlength="7" value="" />
+                                    <input type="color" />
+                                </td>
+                                <td><span class="admin_note" style="float:left">验证码文字颜色，空 为随机</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">文字大小：</td>
+                    <td>
+                        <input name="captcha_textfontsize" type="text" class="form-control" maxlength="3" value="25" />
+                        <span class="admin_note">验证码文字大小，建议在 12 - 50 范围内取值</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">字符数量：</td>
+                    <td>
+                        <input name="captcha_textlength" type="text" class="form-control" maxlength="2" value="4" />
+                        <span class="admin_note">验证码字符数量，建议在 2 - 6 范围内取值，0 为随机</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">文字类型：</td>
+                    <td>
+                        <label>
+                            <input name="captcha_lang" type="radio" value="en" checked="checked" /> 英文
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="captcha_lang" type="radio" value="cn" />中文</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="admin_note">使用中文验证码需要把中文汉字的TTF文件上传到 data/font/cn 目录下，系统将随机使用里面的字体文件作为验证码的文字</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">背景颜色：</td>
+                    <td>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td width="245">
+                                    <input name="captcha_bgcolor" id="captcha_bgcolor" type="text" class="iColorPicker form-control" onclick="iColorShow('captcha_bgcolor','icp_captcha_bgcolor')" maxlength="7" value="" />
+                                    <input type="color" />
+                                </td>
+                                <td><span class="admin_note" style="float:left">验证码背景颜色，空 为随机</span></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">干扰点数量：</td>
+                    <td>
+                        <input name="captcha_noisepoint" type="text" class="form-control" maxlength="7" value="0" />
+                        <span class="admin_note">验证码干扰点数量，建议在 0 - 1000 范围内取值 </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">干扰线数量：</td>
+                    <td>
+                        <input name="captcha_noiseline" type="text" class="form-control" maxlength="7" value="0" />
+                        <span class="admin_note">验证码干扰线数量，建议在 0 - 10 范围内取值 </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">是否扭曲字符：</td>
+                    <td>
+                        <label>
+                            <input name="captcha_distortion" type="radio" value="1" /> 是
+                        </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input name="captcha_distortion" type="radio" value="0" checked="checked" />否</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="admin_note">验证码字符产生扭曲效果</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">&nbsp;</td>
+                    <td height="50">
+                        <input name="submit3" type="submit" class="btn btn-w-m btn-primary" value="保存" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script type="text/javascript" src="js/plugins/gVerify/gVerify.js"></script>
+<script>
+var verifyCode = new GVerify("v_container");
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

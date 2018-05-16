@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>公告分类</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="ibox-content">
+            <h4>提示：</h4>
+            <p>
+                系统默认分类不能删除！
+                <br />
+            </p>
+        </div>
+        <form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=del_category">
+            <input type="hidden" name="hiddentoken" value="85e9fd72" />
+            <table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+                <thead>
+                    <tr>
+                        <td v-for="i in name" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="key in message">
+                        <td v-for="i in key" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-if="message"></div>
+             <div v-else="message">没有任何信息！</div>
+        </form>
+        <div class="ibox-content">
+            <table style="border:1px solid #fff">
+                <tr class="row">
+                    <td class="col-sm-12 m-b-xs">
+                        <a class="btn btn-outline btn-default" href="admin_newList_10.html" title="添加分类">
+                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                        </a>
+                        <a data-toggle="modal" href="admin_newList_7.html#modal-del" class="btn btn-outline btn-default" name="ButDel" id="ButDel" title="删除所选">
+                            <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="modal-del" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+                        <tr>
+                            <td width="20" height="25">&nbsp;</td>
+                            <td height="30" colspan="2"><strong style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+                        </tr>
+                        <tr>
+                            <td width="20" height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input name="delete_company" type="checkbox" id="delete_company" value="yes" checked="checked" /> 删除企业资料
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <input type="submit" id="del_sub" name="delete" value="确定" class="btn btn-w-m btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/vue.js"></script>
+<script>
+$.get("../data/data/admin_newList_7.json", function(Data) {
+    var app = new Vue({
+        el: "#form1",
+        data: Data
+    });
+    var btn = document.getElementById("chk");
+    var test = document.getElementsByName("id[]");
+    btn.onclick = function() {
+        for (var i = 1; i <= test.length; i += 1) {
+            if (test[i - 1].checked) {
+                test[i - 1].checked = false;
+            } else {
+                test[i - 1].checked = true;
+            }
+        }
+    };
+    $("#del_sub").click(function() {
+        $("#modal-del").removeClass('in').css("display", "none");
+        $(".modal-backdrop").removeClass();
+    });
+});
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

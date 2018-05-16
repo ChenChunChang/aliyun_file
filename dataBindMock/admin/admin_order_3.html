@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload() "><i class="glyphicon glyphicon-repeat "></i></button>
+            &nbsp;&nbsp;<b>任我充运营日线图</b> &nbsp;&nbsp; &nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=ec_sh_order'">上海</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=ec_js_order'">江苏</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=ec_gd_order'">广东</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=ec_sc_order'">四川</button>
+        </div>
+        <div class="seltpye_y ibox-content" style="overflow: auto;">
+            <div id="main_sh" style="width:50%; height:300px; float: left;"></div>
+            <div id="main_js" style="width:50%; height:300px; float: left;"></div>
+            <div id="main_gd" style="width:50%; height:300px; float: left;"></div>
+            <div id="main_sc" style="width:50%; height:300px; float: left;"></div>
+        </div>
+    </div>
+    <!-- -->
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main_sh'));
+    var myChart2 = echarts.init(document.getElementById('main_js'));
+    var myChart3 = echarts.init(document.getElementById('main_gd'));
+    var myChart4 = echarts.init(document.getElementById('main_sc'));
+    var option = {
+        title: {
+            text: '上海'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['历史订单', '消费金额', '消耗电量']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [
+                '05-10',
+                '05-11',
+                '05-12',
+                '05-13',
+                '05-14',
+                '05-15',
+                '05-16',
+                '05-17',
+                '05-18',
+                '05-19',
+                '05-20',
+                '05-21',
+                '05-22',
+                '05-23',
+                '05-24',
+                '05-25',
+                '05-26',
+                '05-27',
+                '05-28',
+                '05-29',
+                '05-30',
+                '05-31',
+                '06-01',
+                '06-02',
+                '06-03',
+                '06-04',
+                '06-05',
+                '06-06',
+                '06-07',
+                '06-08',
+            ]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: '历史订单',
+            type: 'line',
+            stack: '总量',
+            data: [
+                22,
+                37,
+                19,
+                12,
+                8,
+                37,
+                55,
+                19,
+                16,
+                26,
+                15,
+                11,
+                21,
+                17,
+                21,
+                48,
+                37,
+                24,
+                3,
+                2,
+                3,
+                12,
+                12,
+                18,
+                11,
+                8,
+                27,
+                29,
+                30,
+                5,
+            ]
+        }, {
+            name: '消费金额',
+            type: 'line',
+            stack: '总量',
+            data: [
+                688.88,
+                530.40,
+                761.64,
+                711.69,
+                449.62,
+                661.44,
+                805.51,
+                924.13,
+                725.73,
+                799.48,
+                623.41,
+                788.89,
+                617.45,
+                465.19,
+                690.02,
+                498.22,
+                743.82,
+                876.89,
+                115.20,
+                50.80,
+                129.84,
+                478.03,
+                375.42,
+                713.86,
+                548.75,
+                533.83,
+                512.17,
+                700.27,
+                382.31,
+                184.31,
+            ]
+        }, {
+            name: '消耗电量',
+            type: 'line',
+            stack: '总量',
+            data: [
+                705.74,
+                573.38,
+                826.28,
+                652.63,
+                449.62,
+                648.84,
+                846.78,
+                950.00,
+                837.19,
+                804.16,
+                623.34,
+                788.89,
+                642.79,
+                511.91,
+                710.47,
+                498.95,
+                883.47,
+                883.00,
+                115.22,
+                50.83,
+                129.84,
+                521.89,
+                460.52,
+                802.24,
+                548.75,
+                533.84,
+                563.33,
+                751.48,
+                419.28,
+                215.49,
+            ]
+        }]
+
+    };
+    myChart.setOption(option);
+    var option = {
+        title: {
+            text: '江苏'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['历史订单', '消费金额', '消耗电量']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [
+                '05-15',
+                '05-16',
+                '05-17',
+                '05-18',
+                '05-19',
+                '05-20',
+                '05-21',
+                '05-22',
+                '05-23',
+                '05-24',
+                '05-25',
+                '05-26',
+                '05-27',
+                '05-28',
+                '05-29',
+                '05-30',
+                '05-31',
+                '06-01',
+                '06-02',
+                '06-03',
+                '06-04',
+                '06-05',
+                '06-06',
+                '06-07',
+                '06-08',
+                '01-08',
+                '01-10',
+                '01-12',
+                '12-01',
+                '01-01',
+            ]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: '历史订单',
+            type: 'line',
+            stack: '总量',
+            data: [
+                493,
+                491,
+                529,
+                526,
+                514,
+                497,
+                474,
+                500,
+                499,
+                470,
+                515,
+                481,
+                469,
+                448,
+                441,
+                434,
+                488,
+                505,
+                503,
+                506,
+                500,
+                498,
+                496,
+                513,
+                149,
+                1,
+                2,
+                2,
+                1,
+                11,
+            ]
+        }, {
+            name: '消费金额',
+            type: 'line',
+            stack: '总量',
+            data: [
+                20438.19,
+                21186.89,
+                22487.05,
+                21983.33,
+                21852.68,
+                21695.55,
+                21692.73,
+                22911.75,
+                21845.11,
+                19501.82,
+                21884.21,
+                20616.12,
+                20319.82,
+                20002.91,
+                19544.09,
+                19080.09,
+                21026.72,
+                20812.98,
+                21953.04,
+                22652.48,
+                21700.88,
+                22086.77,
+                21430.41,
+                21655.00,
+                2830.89,
+                19.34,
+                59.77,
+                49.11,
+                15.65,
+                8217.85,
+            ]
+        }, {
+            name: '消耗电量',
+            type: 'line',
+            stack: '总量',
+            data: [
+                16054.18,
+                15726.82,
+                16551.84,
+                17749.24,
+                17225.40,
+                16616.86,
+                16902.84,
+                17552.29,
+                16951.89,
+                16326.41,
+                16672.31,
+                17495.73,
+                17877.07,
+                17599.15,
+                17133.64,
+                16661.97,
+                18364.11,
+                18230.51,
+                16982.48,
+                17208.25,
+                16728.16,
+                17481.15,
+                17149.56,
+                16807.39,
+                3655.33,
+                14.88,
+                45.99,
+                37.79,
+                12.04,
+                9639.42,
+            ]
+        }]
+
+    };
+    myChart2.setOption(option);
+    var option = {
+        title: {
+            text: '广东'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['历史订单', '消费金额', '消耗电量']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [
+                '03-05',
+                '03-09',
+                '03-10',
+                '03-11',
+                '03-13',
+                '03-14',
+                '03-15',
+                '03-16',
+                '03-17',
+                '03-19',
+                '03-20',
+                '03-21',
+                '03-22',
+                '03-23',
+                '03-24',
+                '03-25',
+                '03-27',
+                '03-28',
+                '03-29',
+                '03-30',
+                '03-31',
+                '04-01',
+                '04-05',
+                '04-06',
+                '04-07',
+                '04-10',
+                '04-11',
+                '04-12',
+                '04-13',
+                '04-14',
+            ]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: '历史订单',
+            type: 'line',
+            stack: '总量',
+            data: [
+                2,
+                7,
+                3,
+                1,
+                6,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                5,
+                2,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1,
+                3,
+                3,
+                1,
+                3,
+                2,
+                5,
+                2,
+                1,
+            ]
+        }, {
+            name: '消费金额',
+            type: 'line',
+            stack: '总量',
+            data: [
+                10.82,
+                38.75,
+                81.07,
+                33.42,
+                54.22,
+                34.46,
+                32.35,
+                0.00,
+                32.68,
+                18.90,
+                35.65,
+                32.09,
+                35.94,
+                33.07,
+                18.12,
+                72.27,
+                74.25,
+                30.42,
+                31.39,
+                31.60,
+                31.39,
+                33.15,
+                40.00,
+                110.84,
+                30.34,
+                106.63,
+                71.35,
+                163.03,
+                57.93,
+                0.00,
+            ]
+        }, {
+            name: '消耗电量',
+            type: 'line',
+            stack: '总量',
+            data: [
+                8.33,
+                29.81,
+                62.37,
+                25.71,
+                41.72,
+                26.51,
+                24.89,
+                24.74,
+                25.14,
+                14.54,
+                27.43,
+                24.69,
+                27.65,
+                25.44,
+                13.97,
+                55.60,
+                57.15,
+                23.40,
+                24.15,
+                24.31,
+                24.15,
+                25.50,
+                30.90,
+                85.27,
+                23.34,
+                82.03,
+                54.89,
+                125.42,
+                44.57,
+                0.00,
+            ]
+        }]
+
+    };
+    myChart3.setOption(option);
+    var option = {
+        title: {
+            text: '四川'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['历史订单', '消费金额', '消耗电量']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: [
+                '05-09',
+            ]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            name: '历史订单',
+            type: 'line',
+            stack: '总量',
+            data: [
+                5,
+            ]
+        }, {
+            name: '消费金额',
+            type: 'line',
+            stack: '总量',
+            data: [
+                4.96,
+            ]
+        }, {
+            name: '消耗电量',
+            type: 'line',
+            stack: '总量',
+            data: [
+                3.68,
+            ]
+        }]
+
+    };
+    myChart4.setOption(option);
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

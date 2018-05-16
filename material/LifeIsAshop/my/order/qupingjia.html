@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+    <title>去评价</title>
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <header class="header">
+            <a href="index.html">
+                <img src="img/return.png">
+            </a>
+            <span>订单详情</span>
+        </header>
+        <!-- main -->
+        <div class="main">
+            <div class="info">
+                <ul>
+                    <li>刘晓心 13562024158</li>
+                    <li>广州市天河区东圃时代TIT广场</li>
+                </ul>
+            </div>
+            <div class="space"></div>
+            <div class="detailed">
+                <ul>
+                    <li class="clear"><span class="lf">购买商品</span><span class="rg">待评价</span><span class="cancel rg" id="cancel">申请退货</span></li>
+                    <li class="clear">
+                        <div class="goodImg lf"></div>
+                        <div class="goods_inst lf">
+                            <p>坚果特产山核桃奶油味碧根...</p>
+                            <p style="color: #dadada;font-size: 0.26rem">规格：1盒6片</p>
+                            <div>
+                                <h2 class="lf" style="color: red;font-size: 0.26rem">￥ 29.5</h2><span class="rg">x 2</span></div>
+                        </div>
+                    </li>
+                    <li class="clear">
+                        <span class="lf">运费：</span>
+                        <span class="rg">￥ 10</span>
+                    </li>
+                    <li class="clear">
+                        <span class="lf">备注:</span>
+                        <input class="lf" type="text" placeholder="请输入" style="font-size: 0.28rem;margin-top: -0.06rem">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="space"></div>
+        <div class="footer detailed">
+            <ul>
+                <li>
+                    <p>订单详情</p>
+                </li>
+                <li style="border-bottom: none">
+                    <p>订单编号： SKYJ12525441 </p>
+                    <p>创建时间：2015-10-02 12_20</p>
+                    <p>付款时间：2015-10-02 12:36</p>
+                    <p>物流信息：申通物流 5221255142</p>
+                    <p>收货时间：2015-10-02 12:36</p>
+                    <div style="height: 0.5rem"></div>
+                </li>
+            </ul>
+            <div style="text-align: center;">
+                <a href="evaluate.html"><button>去评价</button></a>
+            </div>
+        </div>
+        <div id="mask" style="display: none"></div>
+        <div id="can_reason" style="display: none">
+            <div class="can_top">
+                <span class="lf">申请退款</span>
+                <img src="img/close.png" class="rg" id="close">
+            </div>
+            <div class="cancel_del">
+                <ul class="cancel_data">
+                    <li><span class="lf">退货原因* ：</span>
+                        <input type="text" placeholder="请选择退货理由" class="lf" id="ipt"><span class="rg" style="font-size: 0.22rem">*选项必选</span>
+                        <button class="lf" id="btn">
+                            <ul class="t_re" id="t_re">
+                                <li>收到商品破损</li>
+                                <li>商品发错</li>
+                                <li>商品描述不符</li>
+                                <li>商品质量文体</li>
+                            </ul>
+                        </button>
+                    </li>
+                    <li><span class="lf">退款金额*：￥55</span></li>
+                    <li><span class="lf">退款说明：</span>
+                        <input type="text" class="lf" style="width: 70%;">
+                    </li>
+                    <li><span class="lf">上传凭证：</span>
+                        <button class="lf sendBtn">要上传的照片</button>
+                    </li>
+                    <li><img src="img/yi.png"><img src="img/yi2.png" style="margin-left: 0.2rem;"></li>
+                </ul>
+                <a href="Yw-Order.html"><button id="submit">提交</button></a>
+            </div>
+        </div>
+        <!-- container -->
+    </div>
+</body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+var mask = document.getElementById("mask")
+var can_reason = document.getElementById("can_reason")
+var close = document.getElementById("close")
+
+close.onclick = function() {
+    mask.style.display = "none"
+    can_reason.style.display = "none"
+}
+
+var $t_re = $("#t_re")
+var $btn = $("#btn")
+$btn.on("click",function(){
+    $t_re.toggle();
+})
+var submit = document.getElementById("submit")
+submit.onclick = function() {
+    mask.style.display = "none"
+    can_reason.style.display = "none"    
+}
+var cancel = document.getElementById("cancel")
+cancel.onclick = function(){
+    mask.style.display = "block"
+    can_reason.style.display = "block"
+}
+var ipt = document.getElementById("ipt")
+var lis = t_re.getElementsByTagName("li");
+for(var i = 0;i<lis.length;i++){
+    lis[i].index = i;
+    lis[i].onclick = function(){
+        ipt.value = lis[this.index].innerText;
+    }
+}
+</script>
+
+</html>

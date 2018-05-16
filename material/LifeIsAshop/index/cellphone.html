@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>特卖</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container1">
+		<header class="header1">
+			<a href="index.html">
+				<img src="img/back.png" class="back">
+			</a>
+			<img src="img/share.png" class="share" id="share">
+			<img src="img/coll.png" class="coll">
+		</header>
+		<!-- item -->
+		<div class="item">
+			<img src="img/phone.png" alt="">
+			<div class="it_inst">
+				<p>Huawei_华为 荣耀7 全网通4G手机</p>
+				<span>￥ 1150</span>
+				<span>原价 ￥2150</span>
+				<span>销量:1235</span>				
+				<span>限时：2天23分02秒</span>
+				<span>限量：120件</span>			
+			</div>			
+		</div>
+		<div style="height: 0.25rem;background-color: #f2f2f2"></div>
+		
+		<div class="select" id="select">
+			<p class="active">商品详情</p>
+			<p>用户评价</p>
+		</div>
+		<div class="detailed" data="tab1" style="display: block">
+			<img src="img/phde1.png" alt="">
+			<p>文字说明 文字说明 文字说明</p>
+			<p>文字说明 文字说明 文字说明</p>			
+		</div>
+		<div class="detailed" data="tab2">
+			<div class="clear">		
+			<span>小球</span>
+			<span>2015-05-08</span>
+			</div>	
+			<h3>手机挺好用的，喜欢</h3>	
+			<div class="clear">		
+			<span>小明</span>
+			<span>2015-05-08</span>
+			</div>	
+			<h3>手机挺好用的，喜欢</h3>
+			<div class="clear">		
+			<span>小红</span>
+			<span>2015-05-08</span>
+			</div>	
+			<h3>手机挺好用的，喜欢</h3>		
+		</div>
+		<div style="height: 1.0rem;"></div>
+		<!-- 导航 -->
+		<div class="nav">
+			<ul>
+				<a href="../shop/shopCart.html"><li></li></a>
+				<li class="shopBtn">加入购物车</li>
+				<li><a href="../shop/confirmOrder.html">立即购买</a></li>
+			</ul>
+		</div>
+		<!-- container -->
+		<div class="mask" style="display: none"></div>
+		<!-- 分享块 -->
+		<div class="sharePart" style="display: none">
+			<p>分享到</p>
+			<ul>
+				<li><a href="###"></a></li>
+				<li><a href="###"></a></li>
+				<li><a href="###"></a></li>
+			</ul>
+			<button id="show_sh">取消</button>
+		</div>
+		<div class="join_zhe">
+            <div class="commodity">
+                <div class="foodPrice">
+                    <span class="foodImg"><img src="img/phone.png"></span>
+                    <span class="introduce">薯条点心面休闲零食五<br />味园小包装500g</span><br />
+                    <br />
+                    <span class="h_Vprice"><b>￥ 11.5</b>原价：<del>¥ 12.8</del></span>
+                    <img src="img/guan.png" class="guan">
+                </div>
+                <p class="standard">规格</p>
+                <p class="weight"><span>500g</span><span>800g</span></p>
+                <p class="standard">数量</p>
+                <p class="quantity"><span>-</span><span>1</span><span>+</span></p>
+                <button>确认</button>
+            </div>
+        </div>
+	</div>
+</body>
+<script type="text/javascript">
+	(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+var select = document.getElementById("select")
+var p = select.getElementsByTagName("p");
+var divs = document.getElementsByClassName("detailed")
+var share = document.getElementById("share")
+var mask = document.getElementsByClassName("mask")[0];
+var sharePart = document.getElementsByClassName("sharePart")[0];
+var show_sh = document.getElementById("show_sh")
+for(var i = 0;i<p.length;i++){
+	p[i].index = i;	
+	p[i].onclick = function(){
+		for(var j = 0;j<p.length;j++){
+			p[j].className = "";
+			divs[j].style.display = "none";
+		}
+		p[this.index].className = "active";
+		divs[this.index].style.display = "block";
+	}
+}
+share.onclick = function(){
+	mask.style.display = "block";
+	sharePart.style.display = "block";
+
+}
+show_sh.onclick = function(){
+	mask.style.display = "none";
+	sharePart.style.display = "none";
+}
+</script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    //获取规格按钮
+    var $weight = $(".weight span");
+
+    $weight.click(function(){
+        $(this).css({
+            "background-color":"#f29004",
+            "color":"white"
+        });
+        $(this).siblings().css({
+            "background-color":"white",
+            "color":"#666666"
+        });
+    })
+
+    //获取加入购物车按钮
+    var $shopBtn = $(".nav .shopBtn");
+    //获取遮罩
+    var $joinBtn = $(".join_zhe");
+    //获取关闭按钮
+    var $guanBtn = $(".join_zhe .commodity .guan");
+    //获取加减按钮
+    var $addSubBtn = $(".join_zhe .commodity .quantity span")
+    $shopBtn.click(function(){
+        $joinBtn.show();
+    })
+    $guanBtn.click(function(){
+        $joinBtn.hide();
+    })
+    $addSubBtn.eq(0).click(function(){
+        var index = parseInt($addSubBtn.eq(1).text());
+        index--;
+        if(index < 0){
+            index=0;
+        }
+        $addSubBtn.eq(1).text(index);
+    });
+    $addSubBtn.eq(2).click(function(){
+        var index = parseInt($addSubBtn.eq(1).text());
+        index++;
+        if(index < 0){
+            index=0;
+        }
+        $addSubBtn.eq(1).text(index);
+    })
+</script>
+</html>

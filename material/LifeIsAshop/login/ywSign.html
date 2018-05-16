@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+	<!-- 总布局 -->
+	<div class="ywWrap">
+		<!-- 头部 -->
+		<div class="h_dasHade">
+			<a href="../index/index.html"><img src="images/return.png"></a>
+			<span>登录</span>
+			<span class="h_compile"><a href="register.html">注册</a></span>
+		</div>
+		<!-- 中间图片部分 -->
+		<div class="ywBottomImages">
+			<img src="images/1.png" alt="">
+		</div>
+		<!-- 中间输入部分 -->
+		<div class="ywInput">
+			<input type="text" class="ywBack" placeholder="请输入账号/手机号" id="inputImg1">
+			<input type="password" class="ywBack" placeholder="请输入密码" id="inputImg2">
+			<a href="forget-Password.html"><strong class="colors">忘记密码？</strong></a>
+		</div>
+		<!-- 登录按钮 -->
+		<div class="ywSign">
+			<input type="button" class="ywSignInput" value="登录">
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function(){
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+
+<script type="text/javascript">
+	//获取输入框
+	var ipts = document.querySelectorAll(".ywBack");
+	//获取按钮
+	var btn = document.querySelector(".ywSignInput");
+
+	btn.onclick = function(){
+		if(ipts[0].value =="" || ipts[1].value == ""){
+			alert("账号或密码不正确！");
+		}else{
+			window.location.href = '../my/home/mine.html';
+		}
+	}
+</script>
+</html>

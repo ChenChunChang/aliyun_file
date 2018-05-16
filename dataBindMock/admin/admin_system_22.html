@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>消息</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='admin_pms.php?act=list'">系统消息</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='admin_pms.php?act=add_pms_sys'">添加消息</button>
+        </div>
+        <form class="ibox-content" class="ibox-content" action="?act=add_pms_sys_save" method="post" name="FormData" id="FormData">
+            <input type="hidden" name="hiddentoken" value="48bbd5a7" />
+            <div class="external-event navy-bg ui-draggable">新增系统消息</div>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0" class="table">
+                <tr>
+                    <td width="100" align="right">接受会员：</td>
+                    <td>
+                        <label>
+                            <input name="spms_usertype" type="radio" value="0" checked="checked" />全部会员</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="spms_usertype" value="1" />仅企业会员 </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="spms_usertype" value="2" />仅个人会员 </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="spms_usertype" value="3" />仅运营会员 </label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="spms_usertype" value="4" />仅公交会员 </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">类型：</td>
+                    <td>
+                        <label>
+                            <input name="spms_type" type="radio" value="1" checked="checked" />普通消息</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <label>
+                            <input type="radio" name="spms_type" value="2" />注册提醒 </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">消息内容：</td>
+                    <td>
+                        <textarea name="message" id="message" style="width:400px; height:150px; font-size:12px; line-height:180%"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">&nbsp;</td>
+                    <td height="60" valign="top">
+                        <input type="submit" name="Submit" value="添加" class="btn btn-w-m btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <form class="ibox-content" action="?act=add_pms_sys_save" method="post" name="FormData1" id="FormData1">
+            <input type="hidden" name="hiddentoken" value="48bbd5a7" />
+            <div class="external-event navy-bg ui-draggable">发送指定会员系统消息<span class="admin_note">此信息不会在消息列表中显示</span></div>
+            <table width="100%" border="0" cellpadding="5" cellspacing="0" class="table">
+                <tr>
+                    <td width="100" align="right" valign="top">接受人：</td>
+                    <td>
+                        <textarea name="us" id="us" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea>
+                        <br /><span class="admin_note">多个会员名请换行输入</span></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">消息内容：</td>
+                    <td>
+                        <textarea name="msg" id="msg" style="width:400px; height:120px; font-size:12px; line-height:180%"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">&nbsp;</td>
+                    <td height="100" valign="top">
+                        <input type="submit" name="Submit" value="添加" class="btn btn-w-m btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

@@ -1,0 +1,294 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: white;
+}
+body,html,.upgrade_wrap{
+	width: 100%;
+	height: 100%;
+	/*background-color: #f2f2f2;*/
+	font-family: "微软雅黑";
+	/*overflow: scroll;*/
+	overflow: hidden;
+}
+.h_upHade{
+	width: 100%;
+	height: 0.8rem;
+	background-color: #f29004;
+	font-size: 0.36rem;
+	text-align: center;
+	line-height: 0.8rem;
+	color: white;
+}
+.h_upHade img{
+	width: 0.2rem;
+	height: 0.35rem;
+	position: absolute;
+	left: 0.2rem;
+	top: 0.23rem;
+}
+.h_topUp{
+	position: absolute;
+	right: 0.3rem;
+}
+.h_Member{
+	width: 7.11rem;
+	height: 2.13rem;
+	font-size: 0.3rem;
+	/*text-align: center;*/
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+/*会员说明*/
+.h_grade{
+	width: 7.11rem;
+	height: 2.13rem;
+	margin-left: 0.2rem;
+	padding: 0.36rem ;
+	color: #808080;
+}
+.h_vipTe{
+	width: 7.11rem;
+	height: 3.5rem;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.h_vipTe div{
+	display: inline-block;
+}
+.h_vipTe p{
+	color: #c0c0c0;
+}
+.xj_textVip{
+	position: absolute;
+	top: 0;
+	margin-left: 0.15rem;
+	text-align: center;
+}
+.div1{
+	width: 2.5rem;
+	height: 3.5rem;
+	border-top: 0.01rem solid #ccc;
+	margin-left: 0.2rem;
+	margin-top: 0.2rem;
+}
+.div2{
+	width: 2.5rem;
+	height: 3.5rem;
+	border-top: 0.01rem solid #ccc;
+	margin-top: 0.2rem;
+	position: absolute;
+	right: 0;
+}
+
+/*订单详情*/
+.h_bg{
+	background-color: #f2f2f2;
+}
+.h_commodity{
+	width: 100%;
+	height: 2.7rem;
+	background-color: white;
+	font-size: 0.3rem;
+	position: relative;
+}
+.h_commodity p{
+	width: 7.11rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	margin: auto;
+	border-bottom: 1px solid #ccc;
+	padding-top: 0.2rem;
+	padding-bottom: 0.2rem;
+	overflow: hidden;
+}
+.h_purchase{
+	color: #b3b3b3;
+	float: left;
+}
+.h_payment{
+	color: #b3b3b3;
+	float: right;
+}
+.h_details{
+	width: 7.11rem;
+	position: absolute;
+	top: 1rem;
+	left: 0;
+	right: 0;
+	margin: 0;
+	margin: auto;
+}
+.h_details img{
+	width: 1.4rem;
+	height: 1.4rem;
+	float: left;
+}
+.h_details span{
+	float: left;
+	margin-left: 0.2rem;
+}
+.h_btnC{
+	width: 100%;
+	text-align: center;
+}
+.h_a1{
+	font-size: 0.3rem;
+}
+.h_a2{
+	font-size: 0.26rem;
+	color: #b3b3b3;
+}
+.h_a3{
+	font-size: 0.26rem;
+	color: red;
+	font-weight: bold;
+}
+.h_commBtn{
+	width: 6.38rem;
+	height: 0.88rem;
+	background-color: #f29004;
+	border-radius: 0.1rem;
+	border: none;
+	font-size: 0.3rem;
+	color: white;
+}
+
+/*支付成功*/
+.h_scedImg{
+	width: 100%;
+	font-size: 0.35rem;
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
+	text-align: center;
+}
+.h_scedImg img{
+	width: 1.92rem;
+	height: 1.88rem;
+}
+.h_succeedBtn{
+	width: 2.56rem;
+	height: 0.88rem;
+	background-color: #ee4147;
+	border-radius: 0.1rem;
+	border: none;
+	font-size: 0.35rem;
+	color: white;
+}
+
+/* 支付密码 */
+.h_patPwd{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.h_patPwd .password{
+	width: 6.6rem;
+	height: 4.5rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	background-color: white;
+	border-radius: 0.15rem;
+}
+.h_patPwd .password .h_pwd{
+	width: 6.35rem;
+	color: black;
+	text-align: center;
+	font-size: 0.32rem;
+	margin: auto;
+	border-bottom: 1px solid #ccc;
+	padding: 0.2rem;
+	box-sizing: border-box;
+}
+.h_patPwd .password .h_money{
+	width: 6.35rem;
+	color: black;
+	text-align: center;
+	font-size: 0.48rem;
+	margin: auto;
+	padding: 0.2rem;
+	box-sizing: border-box;
+}
+.h_patPwd .password .h_password{
+	width: 6.35rem;
+	color: black;
+	text-align: center;
+	font-size: 0.48rem;
+	margin: auto;
+	/*padding: 0.2rem;*/
+	box-sizing: border-box;
+	border-radius: 0.1rem;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -o-box;
+	display: -ms-box;
+	display: -moz-box;
+	background-color: #f2f2f2;
+}
+.h_patPwd .password .h_password span{
+	display: block;
+	height: 0.9rem;
+	/*background-color: red;*/
+	border-right: 1px solid #ccc;
+	-webkit-box-flex: 1;
+}
+.h_patPwd .password .h_password .borderR{
+	border-right: 0;
+}
+.h_patPwd .password .h_password span input{
+	width: 100%;
+	height: 100%;
+	border: 0;
+	outline: none;
+	text-align: center;
+	font-size: 0.6rem;
+}
+.h_patPwd .password .h_button{
+	width: 6.35rem;
+	color: black;
+	font-size: 0.48rem;
+	margin: auto;
+	padding: 0.4rem 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.h_patPwd .password .h_button input{
+	width: 2.5rem;
+	height: 0.85rem;
+	font-size: 0.32rem;
+	border-radius: 0.1rem;
+	border: 0;
+	outline: none;
+	color: white;
+}
+.h_patPwd .password .h_button input:nth-child(1){
+	float: left;
+}
+.h_patPwd .password .h_button input:nth-child(2){
+	float: right;
+	background-color: #f29004;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>待付款</title>
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <header class="header">
+            <a href="Yw-Order.html">
+                <img src="img/return.png">
+            </a>
+            <span>订单详情</span>
+        </header>
+        <!-- main -->
+        <div class="main">
+            <div class="info">
+                <ul>
+                    <li>刘晓心 13562024158</li>
+                    <li>广州市天河区东圃时代TIT广场</li>
+                </ul>
+            </div>
+            <div class="space"></div>
+            <div class="detailed">
+                <ul>
+                    <li class="clear"><span class="lf">购买商品</span><span class="rg">待付款</span></li>
+                    <li class="clear">
+                       <div class="goodImg lf"></div> 
+                     	<div class="goods_inst lf">
+                     		<p>坚果特产山核桃奶油味碧根...</p>
+                     		<p style="color: #dadada;font-size: 0.26rem">规格：1盒6片</p>
+                     		<div><h2 class="lf" style="color: red;font-size: 0.26rem">￥ 29.5</h2><span class="rg">x 2</span></div>
+                     	</div>
+                    </li>
+                    <li class="clear"> 
+                    	<span class="lf">运费：</span>
+                    	<span class="rg">￥ 10</span>
+                    </li>
+                    <li class="clear">
+                    	<span class="lf">备注:</span>
+                    	<input class="lf" type="text" placeholder="请输入"
+                    	style="font-size: 0.28rem;margin-top: -0.06rem">
+                    </li>
+                </ul>
+            </div>            
+        </div>
+        <div class="space"></div>
+		<div class="footer detailed">
+			<ul>
+				<li><p>订单详情</p></li>
+				<li>
+					<p>订单编号： SKYJ12525441 </p>
+					<p>创建时间：2015-10-02   12_20</p>
+					<div style="height: 1.5rem"></div>
+				</li>
+			</ul>
+			<div style="text-align: center;">
+				<button>立即支付</button>
+			</div>
+		</div>
+
+        <!-- 付款 -->
+        <div class="h_patPwd">
+            <div class="password">
+                <p class="h_pwd">钱包密码</p>
+                <p class="h_money">￥55</p>
+                <p class="h_password">
+                    <span><input type="password"></span>
+                    <span><input type="password"></span>
+                    <span><input type="password"></span>
+                    <span><input type="password"></span>
+                    <span><input type="password"></span>
+                    <span class="borderR"><input type="password"></span>
+                </p>
+                <p class="h_button">
+                    <input type="button" value="取消">
+                    <input type="button" value="付款">
+                </p>
+            </div>
+        </div>
+        <!-- container -->
+    </div>
+</body>
+<script type="text/javascript">
+(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    //获取支付按钮
+    var $payBtn = $(".container button");
+    //获取支付页面
+    var $h_patPwd = $(".h_patPwd");
+    $payBtn.click(function(){
+        $h_patPwd.show();
+    })
+
+    // 获取 取消支付按钮
+    var $pwdBtn = $(".h_patPwd .password .h_button input");
+    //获取密码框
+    var $pwd = $(".h_patPwd .password .h_password span input")
+    $pwdBtn.eq(0).click(function(){
+        $h_patPwd.hide();
+    })
+    $pwdBtn.eq(1).click(function(){
+
+        for(var i = 0; i < $pwd.length; i++){
+            if($pwd.eq(i).val() ==""){
+                alert("密码不能为空，必须有6位数！");
+                return;
+            }
+            $(window).attr("location","../../shop/paySuccess.html");
+            
+        }
+    })
+
+    // 获取地址编辑信息
+    var $info = $(".info");
+    $info.click(function(){
+        $(window).attr("location","../site/h_address.html");
+    })
+</script>
+</html>

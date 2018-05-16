@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>待发货</title>
+    <link rel="stylesheet" type="text/css" href="css/order.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <header class="header">
+            <a href="Yw-Order.html">
+                <img src="img/return.png">
+            </a>
+            <span>订单详情</span>
+        </header>
+        <!-- main -->
+        <div class="main">
+            <div class="info">
+                <ul>
+                    <li>刘晓心 13562024158</li>
+                    <li>广州市天河区东圃时代TIT广场</li>
+                </ul>
+            </div>
+            <div class="space"></div>
+            <div class="detailed">
+                <ul>
+                    <li class="clear"><span class="lf">购买商品</span><span class="rg">待发货</span></li>
+                    <li class="clear">
+                       <div class="goodImg lf"></div> 
+                     	<div class="goods_inst lf">
+                     		<p>坚果特产山核桃奶油味碧根...</p>
+                     		<p style="color: #dadada;font-size: 0.26rem">规格：1盒6片</p>
+                     		<div><h2 class="lf" style="color: red;font-size: 0.26rem">￥ 29.5</h2><span class="rg">x 2</span></div>
+                     	</div>
+                    </li>
+                    <li class="clear"> 
+                    	<span class="lf">运费：</span>
+                    	<span class="rg">￥ 10</span>
+                    </li>
+                    <li class="clear">
+                    	<span class="lf">备注:</span>
+                    	<input class="lf" type="text" placeholder="请输入" style="font-size: 0.28rem;margin-top: -0.06rem">
+                    </li>
+                </ul>
+            </div>            
+        </div>
+        <div class="space"></div>
+		<div class="footer detailed">
+			<ul>
+				<li><p>订单详情</p></li>
+				<li style="border-bottom: none">
+					<p>订单编号： SKYJ12525441 </p>
+					<p>创建时间：2015-10-02   12:20</p>
+                    <p>付款时间：2015-10-02   12:36</p>
+					<div style="height: 2.0rem"></div>
+				</li>
+			</ul>			
+		</div>
+        <!-- container -->
+    </div>
+</body>
+<script type="text/javascript">
+(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+
+</html>

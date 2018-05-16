@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>导航栏设置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=list'">导航菜单</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=site_navigation_add'">添加导航栏目</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=site_navigation_category'">导航分类</button>
+        </div>
+        <div class="ibox-content">
+            <p>
+                <button type="button " class="btn btn-w-m btn-link btn-sm ">导航分类:</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-primary " onclick="location.href='?alias=QS_top&key=&page=1'">头部导航</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?alias=QS_hunter_top&key=&page=1'">左侧导航</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?alias=QS_train_top&key=&page=1'">底部导航</button>
+            </p>
+        </div>
+         <form class="ibox-content" action="?act=site_navigation_all_save" method="post" name="form1" id="form1">
+            <input type="hidden" name="hiddentoken" value="6c6b7116" />
+				<table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+					<thead>
+						<tr>
+							<td v-for="i in name" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="key in message">
+							<td v-for="i in key" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+                <div v-if="message"></div>
+                <div v-else="message">没有任何信息！</div>
+				<table class="table">
+                <tr>
+                    <td>
+                        <button class="btn btn-white btn-bitbucket btn-sm" title="保存修改"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+                        <button class="btn btn-white btn-bitbucket btn-sm" title="添加栏目" onclick="window.location='?act=site_navigation_add'"><i class="glyphicon glyphicon-plus"></i></button>
+                    </td>
+                </tr>
+            </table>
+			</form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/vue.js"></script>
+<script>
+$.get("../data/data/admin_system_5.json", function(Data) {
+				var app = new Vue({
+					el: "#form1",
+					data: Data
+				});
+});
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

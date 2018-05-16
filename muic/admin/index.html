@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../mui/css/mui.min.css" />
+		<script src="../mui/js/mui.min.js"></script>
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_440137_pwr1z2pd8bp22o6r.css" />
+		<style>
+			.iconfont.icon-saomiao,
+			.iconfont.icon-ditu1 {
+				color: #039BE5;
+			}
+			
+			div.mui-input-row.mui-search {
+				right: 40px;
+				left: 40px;
+				display: inline-block;
+				overflow: hidden;
+				width: auto;
+				margin: 0;
+				text-overflow: ellipsis;
+			}
+			
+			
+			#search_div {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				z-index: 100;
+				display: none;
+			}
+			
+			.search.in_div {
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				padding: 0px 10px;
+				background: #00A74F;
+				margin-bottom: 10px;
+			}
+
+			.search.in_div .close {
+				width: 30px;
+				height: 30px;
+				line-height: 50px;
+				color: #FFF;
+				display: inline-block;
+			}
+			
+			.search.in_div .s_ipt {
+				left: 40px;
+				right: 40px;
+				width: auto;
+				height: 30px;
+				display: inline-block;
+			}
+			
+			.search.in_div .s_ipt .tl {
+				width: 100%;
+				height: 30px;
+				padding-left: 15px;
+				outline-style: none;
+				border: 1px solid #999;
+				border-radius: 15px;
+				display: inline-block;
+				background: #EEE;
+			}
+			
+			.search.in_div .icon-search {
+				color: #757575;
+				width: 60px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				border-radius: 15px;
+				outline-style: none;
+				border: 1px solid #999;
+				background: #EEE;
+				display: inline-block;
+			}
+			
+			#s_hot {
+				background-color: #FFF;
+			}
+			
+			.hot_t {
+				padding: 5px;
+				border-bottom: 1px solid #dbdbdb;
+			}
+			
+			.hot_t span {
+				color: #333;
+				padding: 0 8px;
+				font-size: 1rem;
+				position: relative;
+				top: 2px;
+			}
+			
+			.hot_t {
+				padding: 5px;
+				border-bottom: 1px solid #dbdbdb;
+			}
+			
+			#s_hot ul {
+				padding: 10px 0;
+			}
+			
+			#s_hot:after {
+				clear: both;
+				content: "";
+				display: block;
+			}
+			
+			
+			
+			
+.in_div {background: #A3D0C3;}
+.in_div input {
+  width: auto;
+  height: 35px;
+  padding-left: 20px;
+  border: 2px solid #7BA7AB;
+  border-radius: 1000px;
+  outline: none;
+  background: #F9F0DA;
+  color: #9E9C9C;
+}
+.in_div button {
+  width: auto;
+  height: 30px;
+  border: none;
+  background: #F9F0DA; 
+  color: #9E9C9C;
+  border-radius: 1000px;
+  cursor: pointer;
+  margin-top: 7.5px;
+}     
+		</style>
+	</head>
+
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav">
+			<i class="mui-action-back mui-icon mui-pull-left iconfont icon-saomiao"></i>
+			<div class="mui-input-row mui-search">
+				<input type="search" id="search_cl" class="mui-input-clear" placeholder="关键字搜索">
+			</div>
+			<i class="mui-action-back mui-icon mui-pull-right iconfont icon-ditu1"></i>
+		</header>
+		<div id="search_div" class="s" style="">
+			<div class="search in_div">
+				<div class="rback"></div>
+				<div class="close"><i class="iconfont icon-fanhui"></i></div>
+				<input type="text" placeholder="请输入关键词...">
+  				<button type="submit"><i class="iconfont icon-sousuo"></i>搜索</button>
+				<!--<div class="s_ipt"><input class="tl" type="search" data-replaceholder="请输入关键词" placeholder="请输入关键词">
+					<div class="del" style="display: none;"></div>
+				</div>
+				<div class="sou icon icon-search" data-clickparam="from=chr_other_search_search"><i class="iconfont icon-sousuo"></i>搜索</div>-->
+			</div>
+			<div id="subDiv" style="overflow: hidden; height: 518px;">
+				<div style="transition-property: -webkit-transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);">
+					<div id="s_list" style="display: none;">
+						<ul></ul>
+						<div id="cleanhistory">清空历史</div>
+					</div>
+					<div class="cline"></div>
+					<div id="s_hot" class="hotword">
+						<a href="#">
+							<div class="hot_t"><span>热门</span></div>
+						</a>
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>
+		$("#search_cl").on("focus", function() {
+			console.log("aaa");
+			$("#search_div").css("display", "block");
+		})
+	</script>
+
+</html>

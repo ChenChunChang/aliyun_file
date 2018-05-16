@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>后台</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+		<link href="css/animate.min.css" rel="stylesheet">
+		<link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+	</head>
+
+	<body class="gray-bg sidebar-content">
+		<div class="wrapper-content animated fadeInRight">
+			<div class="ibox-title">
+				<button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button> &nbsp;&nbsp;
+				<b>提现管理</b> &nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="clear"></div>
+			</div>
+			<div class="ibox-content">
+				<p>
+					<button type="button" class="btn btn-w-m btn-link btn-sm">完成状态:</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?act=outmoney&state=&key=&page=1'">不限</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&state=0&key=&page=1'">待审核</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&state=1&key=&page=1'">提现中</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&state=2&key=&page=1'">审核未通过</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&state=3&key=&page=1'">提现成功</button>
+				</p>
+				<p>
+					<button type="button" class="btn btn-w-m btn-link btn-sm">订单时间:</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?act=outmoney&outtime=&key=&page=1'">不限</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&outtime=3&key=&page=1'">三天内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&outtime=7&key=&page=1'">一周内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&outtime=30&key=&page=1'">一月内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&outtime=180&key=&page=1'">半年内</button>
+					<button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=outmoney&outtime=360&key=&page=1'">一年内</button>
+				</p>
+			</div>
+			<form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=company_perform">
+				<input type="hidden" name="hiddentoken" value="c313f74c" />
+				<table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+					<thead>
+						<tr>
+							<td v-for="i in name" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="key in message">
+							<td v-for="i in key" v-html="i">
+								{{i}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div v-if="message"></div>
+            	<div v-else="message">没有任何信息！</div>
+			</form>
+			<div class="ibox-content">
+				<table style="border:1px solid #fff">
+					<tr class="row">
+						<td class="col-sm-12 m-b-xs">
+							<form id="formseh" name="formseh" method="get" action="?">
+								<div class="input-group ibox-tools" style="margin-top: -7px;">
+									<div style="float: right;">
+										<input name="act" type="hidden" value="members_list" />
+										<button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+									</div>
+									<div style="float: right;">
+										<input name="key" type="text" value="" class="form-control input-sm" />
+									</div>
+									<div style="float: right;">
+										<select class="form-control m-b input-sm" name="key_type" style="border-right: none;">
+											<option value="1">订单号</option>
+											<option value="2">会员名</option>
+										</select>
+									</div>
+								</div>
+							</form>
+						</td>
+					</tr>
+				</table>
+				<br />
+				<div class="dataTables_paginate paging_simple_numbers ibox-content">
+					<ul class="pagination btn-sm ibox-tools">
+						<li>
+							<a class="">首页</a>
+						</li>
+						<li>
+							<a class="">上一页</a>
+						</li>
+						<li>
+							<a class="select">1</a>
+						</li>
+						<li>
+							<a class="">下一页</a>
+						</li>
+						<li>
+							<a class="">尾页</a>
+						</li>
+						<li class="page_all">
+							<a>1/1页</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- -->
+	</body>
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/peity/jquery.peity.min.js"></script>
+	<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+	<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+	<script src="js/content.min.js?v=1.0.0"></script>
+	<script src="js/vue.js"></script>
+	<script>
+		$.get("../data/data/admin_corporateV6.json", function(Data) {
+			var app = new Vue({
+				el: "#form1",
+				data: Data
+			});
+
+		var btn = document.getElementById("chk");
+		var test = document.getElementsByName("id[]");
+		btn.onclick = function() {
+			for(var i = 1; i <= test.length; i += 1) {
+				if(test[i - 1].checked) {
+					test[i - 1].checked = false;
+				} else {
+					test[i - 1].checked = true;
+				}
+			}
+		};
+		});
+	</script>
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

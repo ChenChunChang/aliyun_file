@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        table tr{
+            padding-bottom: 20px;
+        }
+        .input_text_200{
+            width: 200px;
+        }
+        .input_text_400{
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>新闻分类</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="ibox-content">
+            <div class="external-event navy-bg ui-draggable">
+                <h2>提示：</h2>
+                <p>
+                    点击“继续添加”按钮，可同时添加多个分类！
+                    <br />
+                </p>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <form id="form1" name="form1" method="post" action="?act=add_category_save">
+                <input type="hidden" name="hiddentoken" value="de600b04" />
+                <div class="external-event navy-bg ui-draggable">新增分类</div>
+                <div id="html_tpl">
+                    <table class="table" width="100%" border="0" cellpadding="3" cellspacing="5" style="border-bottom:1px  #86AFE8 dashed">
+                        <tr>
+                            <td width="120" align="right">所属分类：</td>
+                            <td>
+                                <select class="form-control" name="parentid[]" id="parentid" style="width:108px; font-size:12px;">
+                                    <option value="0">顶级分类</option>
+                                    <option value="" selected="selected">充电桩配件资讯</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">名称：</td>
+                            <td>
+                                <input name="categoryname[]" type="text" class="input_text_200 form-control" value="" maxlength="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">排序：</td>
+                            <td>
+                                <input name="category_order[]" type="text" style="width:40px;" value="0" maxlength="3" class="input_text_200 form-control" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">title：</td>
+                            <td>
+                                <input name="title[]" type="text" class="input_text_200 form-control" maxlength="30" style="display:inline-block;" /> 不填则为分类名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">description：</td>
+                            <td>
+
+                                <textarea name="description[]" class="input_text_400 form-control" style="height:50px;"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">keywords：</td>
+                            <td>
+                                <textarea name="keywords[]" class="input_text_400 form-control" style="height:50px;"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="html"></div>
+                <table width="100%" border="0" cellpadding="3" cellspacing="5">
+                    <tr>
+                        <td width="120" align="right">&nbsp;</td>
+                        <td>
+                            <input type="submit" name="addsave" value="保存" class="btn btn-w-m btn-primary" />
+                            <input type="button" name="add_form" id="add_form" value="继续添加" class="btn btn-w-m btn-primary" />
+                            <input name="submit22" type="button" class="btn btn-w-m btn-primary" value="返 回" onclick="history.go(-1)" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

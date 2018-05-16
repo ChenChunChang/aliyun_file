@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/classfiy_index.css" />
+	</head>
+
+	<body>
+		<div id="classify_wrap">
+			<!--头部-->
+			<div class="classify_header">分类</div>
+			<!--内容-分类-->
+			<ul class="classify_fenlei">
+				<li class="bgColor fitrclass"><span>生活食品</span><img src="img/up1.jpg" /></li>
+				<li>价格从高到低<img src="img/up2.jpg" /></li>
+				<li>销量优先<img src="img/up2.jpg" /></li>
+			</ul>
+			<!--分类-筛选-->
+			<ul class="classify_shaixuan">
+				<li class="food">
+					<a href="###">生活食品</a>
+				</li>
+				<li>
+					<a href="###">生活用品</a>
+				</li>
+				<li>
+					<a href="###">生活家具</a>
+				</li>
+				<li>
+					<a href="###">百货</a>
+				</li>
+				<li>
+					<a href="###">家电</a>
+				</li>
+				<li>
+					<a href="###">汽车配件</a>
+				</li>
+				<li>
+					<a href="###">箱包</a>
+				</li>
+				<li>
+					<a href="###">珠宝</a>
+				</li>
+			</ul>
+			<!--内容-产品-->
+			<ul class="classify_content clear">
+				<li>
+					<a href="classfiy_details.html"><img src="img/pkcui.jpg" /></a>
+					<a href="classfiy_details.html">
+						<p>休闲零食五味园pk脆独立小包装500g</p>
+					</a>
+					<span>￥10.9</span><span class="yuanjia">原价:￥12.8</span>
+				</li>
+				<li>
+					<a href="classfiy_details.html"><img src="img/bigenguo.jpg" /></a>
+					<a href="classfiy_details.html">
+						<p>坚果特产山核桃奶油味碧根果210gx2袋</p>
+					</a>
+					<span>￥29.5</span><span class="yuanjia">原价:￥42.5</span>
+				</li>
+				<li>
+					<a href="classfiy_details.html"><img src="img/pkcui.jpg" /></a>
+					<a href="classfiy_details.html">
+						<p>休闲零食五味园pk脆独立小包装500g</p>
+					</a>
+					<span>￥10.9</span><span class="yuanjia">原价:￥12.8</span>
+				</li>
+				<li>
+					<a href="classfiy_details.html"><img src="img/bigenguo.jpg" /></a>
+					<a href="classfiy_details.html">
+						<p>坚果特产山核桃奶油味碧根果210gx2袋</p>
+					</a>
+					<span>￥29.5</span><span class="yuanjia">原价:￥42.5</span>
+				</li>
+			</ul>
+			<!--底部-->
+			<div class="classify_footer">
+				<ul class="footer_ul">
+					<li>
+						<a href="../index/index.html"><img src="img/index.png" />
+							<p>首页</p>
+						</a>
+					</li>
+					<li>
+						<a href="../great/vip.html"><img src="img/vip2.png" />
+							<p>会员</p>
+						</a>
+					</li>
+					<li>
+						<a href="classify_index.html"><img src="img/classify.png" />
+							<p>分类</p>
+						</a>
+					</li>
+					<li>
+						<a href="../shop/shopCart.html"><img src="img/shop2.png" />
+							<p>购物车</p>
+						</a>
+					</li>
+					<li>
+						<a href="../my/home/mine.html"><img src="img/my.png" />
+							<p>我的</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//获取分类列表
+		var $fenleiBtn = $(".classify_fenlei li");
+		//获取图片
+		var $down = $(".classify_fenlei li img");
+		$fenleiBtn.click(function(){
+			$(this).addClass("bgColor");
+			$(this).find($down).attr("src","img/up1.jpg");
+			$(this).siblings().removeClass("bgColor");
+			$(this).siblings().find($down).attr("src","img/up2.jpg");
+		})
+		//获取筛选列表
+		var $shaixuanTab = $(".classify_shaixuan");
+		$fenleiBtn.eq(0).click(function(){
+			$shaixuanTab.toggle();
+		})
+		//获取列表
+		var $shaiTabBtn = $(".classify_shaixuan li");
+		//获取筛选显示文字
+		var $shaiText = $(".classify_fenlei .fitrclass span");
+		$shaiTabBtn.click(function(){
+			$(this).addClass("food");
+			$(this).siblings().removeClass("food");
+			$shaiText.text($(this).text());
+		})
+	</script>
+</html>

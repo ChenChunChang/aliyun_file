@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>收货地址</title>
+	<link rel="stylesheet" type="text/css" href="css/h_profile.css">
+</head>
+<body>
+	<div class="h_siteWrap">
+	<!-- 头部 -->
+		<div class="h_siteHade">
+			<a href="h_profile.html"><img src="img/reu.png"></a>
+			<span>收货地址</span>
+			<a href="h_profile.html"><span class="h_topUp">完成</span></a>
+		</div>
+	<!-- 编辑地址 -->
+	<div class="h_address">
+		<ul>
+			<li class="h_bomAdd">收货人姓名:<input type="text" name=""></li>
+			<li class="h_bomAdd">联系电话:<input type="text" name=""></li>
+			<li class="h_bomAdd xQ">城市：选择<span>省级</span><img src="img/down.png" alt="">选择<span>城市</span><img src="img/down.png" alt="">选择<span>区</span><img src="img/down.png" alt="">
+			
+			</li>
+			<li class="h_bomAdd"><input type="text" name="" placeholder="小区、街道、门牌等详细信息" class="inptTie"></li>
+			<li>设为默认地址
+			<img src="img/swick_bg.png" alt="" class="h_swickBg">
+			<img src="img/swick.png" class="h_swick"></li>
+		</ul>
+	</div>
+
+	<div class="zhezhao">
+		<div class="h_siteCity">
+			<p><span class="cancel">取消</span><span class="affirm">确认</span></p>
+			<ul>
+				<li><span class="left">湖北</span><span class="center">桂林</span><span class="right">白云</span></li>
+				<li><span class="left">湖南</span><span class="center">贵阳</span><span class="right">珠海</span></li>
+				<li class="zhuxuan"><span class="left">广东</span><span class="sheng">省</span><span class="center">广州</span><span class="shi">市</span><span class="right">天河</span><span class="qu">区</span></li>
+				<li><span class="left">北京</span><span class="center">深圳</span><span class="right">越秀</span></li>
+				<li><span class="left">香港</span><span class="center">潮州</span><span class="right">荔湾</span></li>
+			</ul>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function(){
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	
+	//获取默认地址点击事件
+	var $imgBtn = $(".h_swickBg");
+	var $moveImg = $(".h_swick");
+	var index = 0;
+	$moveImg.click(function(){
+		if(index ==0){
+			$moveImg.css({
+			"position":"absolute",
+			"right":"0.65rem"
+			});
+			index=1;
+		}else{
+			$moveImg.css({
+			"position":"absolute",
+			"right":"0.2rem"
+			});
+			index=0;
+		}
+	})
+
+	// 获取详情城市点击事件
+	var $csBtn = $(".xQ");
+	var $zhe = $(".zhezhao");
+	$csBtn.click(function(){
+		$zhe.show();
+	})
+	//取消
+	var $cancel = $(".cancel");
+	$cancel.click(function(){
+		$zhe.hide();
+	})
+	//确认
+	var $affirm = $(".affirm");
+	$affirm.click(function(){
+		$zhe.hide();
+	})
+</script>
+</html>

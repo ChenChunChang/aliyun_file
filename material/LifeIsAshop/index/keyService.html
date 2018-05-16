@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>一键客服</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div class="container">
+	<!-- header -->
+		<header class="header">
+			<a href="index.html">
+				<img src="img/back.png">
+			</a>
+			<span>一键客服</span>
+		</header>
+		<div class="main">
+			<div class="info">
+				<p>联系信息：</p>
+				<ul class="cont">
+					<li class="active">姓名：<input type="text"></li>	
+					<li>联系方式：<input type="text"></li>
+				</ul>
+			</div>
+			<div class="info space">
+				<p>需要类型：</p>
+				<ul class="cont">
+					<li><input type="text" placeholder="输入商业合作_商品入驻_广告加盟等需求类型" style="width: 90%;"></li>
+				</ul>
+			</div>
+			<div class="info space">
+				<p>需要描述：</p>
+				<ul class="cont">
+					<li><textarea style="width: 6.0rem;height: 2.8rem;resize: none;border: none;font-size: 0.3rem;outline: none;" placeholder="请根据需求类型，输入详细的合作模式（如：商 品入驻，请注明具体商品、数量等），平台会在 第一时间与您进行沟通联系。"></textarea></li>
+				</ul>
+			</div>
+			<p class="space ale">需求提交后，平台会在第一时间与您联系。</p>
+			<button>提交</button>
+		</div>
+		<!-- container -->
+	</div>
+</body>
+<script type="text/javascript">
+	(function(doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if (clientWidth >= 750) {
+                docEl.style.fontSize = '100px';
+            } else {
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+
+</script>
+</html>

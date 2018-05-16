@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload() "><i class="glyphicon glyphicon-repeat"></i></button> &nbsp;&nbsp;
+            <b>公交管理</b>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=bus_list'">所有公交企业</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=meal_log&mode=1'">积分变更记录</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=meal_log_pie'">营业额报表</button>
+        </div>
+        <div class="ibox-content">
+            <p>
+                <button type="button " class="btn btn-w-m btn-link btn-sm ">认证状态:</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-primary " onclick="location.href='?act=bus_list&audit=&key=&page=1'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&audit=1&key=&page=1'">认证通过</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&audit=2&key=&page=1'">等待认证</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&audit=3&key=&page=1'">认证未通过</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&audit=0&key=&page=1'">未认证</button>
+            </p>
+            <p>
+                <button type="button " class="btn btn-w-m btn-link btn-sm ">添加时间:</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-primary " onclick="location.href='?act=bus_list&settr=&key=&page=1' ">不限</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&settr=3&key=&page=1' ">三天内</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&settr=7&key=&page=1' ">一周内</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&settr=30&key=&page=1' ">一月内</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&settr=180&key=&page=1' ">半年内</button>
+                <button type="button " class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=bus_list&settr=360&key=&page=1' ">一年内</button>
+            </p>
+        </div>
+        <form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=company_perform">
+            <input type="hidden" name="hiddentoken" value="c313f74c" />
+            <table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+                <thead>
+                    <tr>
+                        <td v-for="i in name" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="key in message">
+                        <td v-for="i in key" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-if="message"></div>
+            <div v-else="message">没有任何信息！</div>
+        </form>
+        <div class="ibox-content">
+            <table style="border:1px solid #fff">
+                <tr class="row">
+                    <td class="col-sm-4 m-b-xs">
+                        <a data-toggle="modal" href="admin_busV2.html#modal-approve" class="btn btn-outline btn-default" title="认证公交">
+                            <i class="glyphicon glyphicon-check"></i>
+                        </a>
+                        <a data-toggle="modal" href="admin_busV2.html#modal-del" class="btn btn-outline btn-default" title="删除">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                    <td class="col-sm-8 m-b-xs">
+                        <form id="formseh" name="formseh" method="get " action="?">
+                            <div class="input-group ibox-tools " style="margin-top: -7px; ">
+                                <div style="float: right; ">
+                                    <input name="act" type="hidden" value="members_list">
+                                    <button type="submit " class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+                                </div>
+                                <div style="float: right; ">
+                                    <input name="key " type="text " value=" " class="form-control input-sm " />
+                                </div>
+                                <div style="float: right; ">
+                                    <select class="form-control m-b input-sm " name="key_type " style="border-right: none; ">
+                                        <option value="1">公交名</option>
+                                        <option value="2">公交id</option>
+                                        <option value="3">会员名</option>
+                                        <option value="4">会员id</option>
+                                        <option value="5">地址</option>
+                                        <button value="6">电话</button>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="dataTables_paginate paging_simple_numbers ibox-content">
+                <ul class="pagination btn-sm ibox-tools">
+                    <li>
+                        <a class=" ">首页</a>
+                    </li>
+                    <li>
+                        <a class=" ">上一页</a>
+                    </li>
+                    <li>
+                        <a class="select ">1</a>
+                    </li>
+                    <li>
+                        <a class="">下一页</a>
+                    </li>
+                    <li>
+                        <a class="">尾页</a>
+                    </li>
+                    <li class="page_all">
+                        <a>1/1页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--  -->
+    </div>
+    <!-- -->
+    <div id="modal-del" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+                        <tr>
+                        	<td width="20" height="25">&nbsp;</td>
+                            <td height="30" colspan="2"><strong style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+                        </tr>
+                        <tr>
+                            <td width="20" height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input name="delete_bus" type="checkbox" id="delete_bus" value="yes" checked="checked" /> 删除公交资料
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <input type="submit" id="del_sub" name="delete" value="确定" class="btn btn-w-m btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div id="modal-approve" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+                        <tr>
+                            <td width="20" height="30">&nbsp;</td>
+                            <td height="30"><strong style="color:#0066CC; font-size:14px;">将所选公交设置为：</strong></td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input name="audit" type="radio" value="1" checked="checked" id="success" /> 认证通过 </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="audit" value="3" id="fail" /> 认证未通过
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input type="radio" name="audit" value="2" id="wait" /> 等待认证
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40" height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input type="checkbox" name="pms_notice" value="1" checked="checked" /> 站内信通知
+                                </label>
+                            </td>
+                        </tr>
+                        <tr style="display:none" id="reason">
+                            <td width="40" height="25">理由：</td>
+                            <td>
+                                <textarea name="reason" id="reason" cols="50" style="font-size:12px"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <input type="submit" id="set_audit" name="set_audit" value="确定" class="btn btn-w-m btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script src="js/vue.js"></script>
+<script type="text/javascript ">
+$.get("../data/data/admin_busV2.json", function(Data) {
+    var app = new Vue({
+        el: "#form1",
+        data: Data
+    });
+
+    var btn = document.getElementById("chk");
+    var test = document.getElementsByName("y_id[]");
+    btn.onclick = function() {
+        for (var i = 1; i <= test.length; i += 1) {
+            if (test[i - 1].checked) {
+                test[i - 1].checked = false;
+            } else {
+                test[i - 1].checked = true;
+            }
+        }
+    };
+    $("#del_sub").click(function() {
+        $("#modal-del").removeClass('in').css("display", "none");
+        $(".modal-backdrop").removeClass();
+    });
+    $("#set_audit").click(function() {
+        $("#modal-approve").removeClass('in').css("display", "none");
+        $(".modal-backdrop").removeClass();
+    });
+});
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+    input[type=text] {
+        display: inline-block;
+    }
+
+    .input_text_200 {
+        width: 200px;
+    }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>邮件设置</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act='">配置</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=rule'">发送规则</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=email_set_templates'">邮件模版</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white " onclick="location.href='?act=log'">邮件日志</button>
+        </div>
+        <form class="ibox-content" action="?act=email_set_save" method="post" name="form1" id="form1">
+            <input type="hidden" name="hiddentoken" value="8fc858eb" />
+            <div class="toptit">设置</div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <label>
+                            <input name="method" type="radio" value="1" checked="checked" /> 通过连接 SMTP 服务器发送邮件
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="radio" name="method" value="2" /> 通过sendmail 发送邮件
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            <input type="radio" name="method" value="3" /> 通过 PHP 函数 SMTP 发送邮件
+                        </label>
+                    </td>
+                </tr>
+            </table>
+            <div style=" display:none1" id="method_sendmail">
+                <div class="html_tpl">
+                    <table class="table">
+                        <tr>
+                            <td width="150" align="right">SMTP服务器地址：</td>
+                            <td>
+                                <input name="smtpservers[]" type="text" class="input_text_200 form-control" id="smtpservers" value="" maxlength="30" /> 如：smtp.qq.com
+                            </td>
+                            <td><span style="color:#0066CC; cursor:pointer" class="delsmtp">X 删除此账户</span></td>
+                        </tr>
+                        <tr>
+                            <td align="right">SMTP服务帐户名：</td>
+                            <td>
+                                <input name="smtpusername[]" type="text" class="input_text_200 form-control" id="smtpusername" value="" maxlength="100" />
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="right">SMTP服务密码：</td>
+                            <td>
+                                <input name="smtppassword[]" type="password" class="input_text_200 form-control" id="smtppassword" value="" maxlength="40" />
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="right">发信人邮件地址：</td>
+                            <td>
+                                <input name="smtpfrom[]" type="text" class="input_text_200 form-control" id="site_title" value="" maxlength="60" /> </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="right">SMTP 端口：</td>
+                            <td>
+                                <input name="smtpport[]" type="text" class="input_text_200 form-control" id="smtpport" value="25" maxlength="60" /> 默认：25
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="html"></div>
+            </div>
+            <table width="700" border="0" cellspacing="8" cellpadding="1">
+                <tr>
+                    <td width="120" align="right">&nbsp;</td>
+                    <td>
+                        <input name="save" type="submit" class="btn btn-w-m btn-primary" value="保存修改" />
+                        <input type="button" name="add_form" id="add_form" value="继续添加" class="btn btn-w-m btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

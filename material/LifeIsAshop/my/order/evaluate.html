@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta charset="UTF-8">
+	<title>评论</title>
+	<link rel="stylesheet" type="text/css" href="css/order.css">
+</head>
+<body>
+<div class="h_evaluateWrap">
+	<!-- 头部 -->
+	<div class="h_dasHade">
+		<a href="Yw-Order.html"><img src="img/return.png"></a>
+		<span>我的订单</span>
+	</div>
+	<!-- 购买的商品 -->
+	<p class="h_commodityP">购买商品</p>
+	<!-- 商品 -->
+	<div class="h_commodityDiv">
+		<img src="img/nut.png">
+		<p class="h_describeP">
+			坚果特产山核桃奶油味碧根...<br />
+			<span class="standard">规格：1盒6片</span><br />
+			<span class="price">￥29.5</span><span class="number">x2</span>
+		</p>
+	</div>
+	<!-- 评论 -->
+	<p class="h_ratingP">
+		<span>评论</span>
+		<span class="h_rigImgs">
+			<img data-num="0" src="img/STAR2.png">
+			<img data-num="1" src="img/STAR2.png">
+			<img data-num="2" src="img/STAR2.png">
+			<img data-num="3" src="img/STAR2.png">
+			<img data-num="4" src="img/STAR2.png">
+		</span>
+	</p>
+	<!-- 文字 -->
+	<div class="h_characterT">
+		<textarea></textarea>
+	</div>
+
+	<!-- 确认 -->
+	<a href="yetEvaluate.html"><button>确认</button></a>
+</div>
+</body>
+<script type="text/javascript">
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function(){
+            var clientWidth = docEl.clientWidth;
+            if(!clientWidth) return;
+            if(clientWidth>=750){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+</script>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+	//获取图片
+	var $imgs = $(".h_ratingP img");
+	var $btn = $("button");
+	$imgs.click(function(){
+		var index = $(this).attr("data-num");
+		$imgs.attr("src","img/STAR2.png");
+		for(var i = 0; i<=index ;i++){
+			$imgs.eq(i).attr("src","img/STAR.png");
+		}
+	})
+</script>
+</html>

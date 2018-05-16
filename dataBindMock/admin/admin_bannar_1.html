@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button> &nbsp;&nbsp;
+            <b>广告列表页</b> &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+        <div class="ibox-content">
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">到期时间:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='javascript:void(0);'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">已经到期</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">三天内到期</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">一周内到期</button>
+            </p>
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">显示状态:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='javascript:void(0);'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">正常</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">停止</button>
+            </p>
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">广告位:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='javascript:void(0);'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">首页头部广告位</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">首页中部广告位</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='javascript:void(0);'">首页左侧广告位</button>
+            </p>
+        </div>
+        <form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=migrate_article">
+            <table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+                <thead>
+                    <tr>
+                        <td v-for="i in name" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="key in message">
+                        <td v-for="i in key" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-if="message"></div>
+            <div v-else="message">没有任何信息！</div>
+        </form>
+        <div class="ibox-content">
+            <table style="border:1px solid #fff ">
+                <tr class="row">
+                    <td class="col-sm-4 m-b-xs">
+                        <a class="btn btn-outline btn-default" onclick="window.location.href='admin_bannar_2.html'" title="添加广告">
+                            <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                        </a>
+                        <a id="del" data-toggle="modal" href="admin_bannar_1.html#modal-del" class="btn btn-outline btn-default" title="删除">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </td>
+                    <td class="col-sm-8 m-b-xs">
+                        <form id="formseh " name="formseh " method="get " action="?">
+                            <div class="input-group ibox-tools" style="margin-top: -7px; ">
+                                <div style="float: right; ">
+                                    <input name="act" type="hidden" value="members_list" />
+                                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+                                </div>
+                                <div style="float: right; ">
+                                    <input name="key" type="text" value=" " class="form-control input-sm" />
+                                </div>
+                                <div style="float: right; ">
+                                    <select class="form-control m-b input-sm" name="key_type" style="border-right: none;">
+                                        <option value="1">广告编号</option>
+                                        <option value="2">广告标题</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="dataTables_paginate paging_simple_numbers ibox-content">
+                <ul class="pagination btn-sm ibox-tools">
+                    <li>
+                        <a class=" ">首页</a>
+                    </li>
+                    <li>
+                        <a class=" ">上一页</a>
+                    </li>
+                    <li>
+                        <a class="select">1</a>
+                    </li>
+                    <li>
+                        <a class="">下一页</a>
+                    </li>
+                    <li>
+                        <a class="">尾页</a>
+                    </li>
+                    <li class="page_all">1/1页</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="modal-del" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+                        <tr>
+                            <td width="20" height="25">&nbsp;</td>
+                            <td height="30" colspan="2"><strong style="color:#0066CC; font-size:14px;">你确定要删除吗？</strong></td>
+                        </tr>
+                        <tr>
+                            <td width="20" height="25">&nbsp;</td>
+                            <td>
+                                <label>
+                                    <input name="delete_company" type="checkbox" id="delete_company" value="yes" checked="checked" /> 删除---------
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="25">&nbsp;</td>
+                            <td>
+                                <input type="submit" id="del_sub" name="delete" value="确定" class="btn btn-w-m btn-primary" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script src="js/vue.js"></script>
+<script>
+$.get("../data/data/admin_bannar_1.json", function(Data) {
+    var app = new Vue({
+        el: "#form1",
+        data: Data
+    });
+    var btn = document.getElementById("chk");
+    var test = document.getElementsByName("id[]");
+    btn.onclick = function() {
+        for (var i = 1; i <= test.length; i += 1) {
+            if (test[i - 1].checked) {
+                test[i - 1].checked = false;
+            } else {
+                test[i - 1].checked = true;
+            }
+        }
+    };
+    $("#del_sub").click(function() {
+        $("#modal-del").removeClass('in').css("display", "none");
+        $(".modal-backdrop").removeClass();
+    });
+});
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>短信营销</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=list'">队列</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=smsqueue_add'">添加</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=smsqueue_batchadd'">批量添加</button>
+        </div>
+        <div class="ibox-content">
+            <div class="external-event navy-bg ui-draggable">
+                <h2>提示：</h2>
+                <p>
+                    短信内容不能超过70个字！
+                </p>
+            </div>
+        </div>
+        <form class="ibox-content" id="form1" name="form1" method="post" action="?act=smsqueue_add_save">
+            <input type="hidden" name="hiddentoken" value="c28b0c1c" />
+            <div class="external-event navy-bg ui-draggable">新增短信任务</div>
+            <table class="table">
+                <tr>
+                    <td width="120" height="30" align="right">收件人：</td>
+                    <td>
+                        <textarea name="s_sms" class="input_text_400" style="height:80px;"></textarea>
+                        <span class="admin_note">(请用“|”隔开多个手机号码)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120" height="30" align="right"></td>
+                    <td>
+                        <input type="button" name="importnum" class="btn btn-w-m btn-primary" id="importnum" value="导入号码" />
+                        <span class="admin_note">(支持TXT文本，多个号码请换行)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="100" align="right">发送内容:</td>
+                    <td>
+                        <textarea name="s_body" class="input_text_400" style="height:80px;" onpropertychange="if(this.value.length&gt;70){this.value=this.value.slice(0,70)}"></textarea>
+                        <span class="admin_note">内容超过70个字符将自动截取</span> </td>
+                </tr>
+                <tr>
+                    <td height="30" align="right">&nbsp;</td>
+                    <td height="50">
+                        <input name="submit3" type="submit" class="btn btn-w-m btn-primary" value="添加" />
+                        <input name="submit22" type="button" class="btn btn-w-m btn-primary" value="返回" onclick="Javascript:window.history.go(-1)" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <span id="OpImport"></span>
+        <div style="display:none" id="ImportSet">
+            <form action="?act=import_num" encType="multipart/form-data" method="post">
+                <table width="100%" border="0" align="center" cellpadding="0" cellspacing="6">
+                    <tr>
+                        <td width="20" height="30">&nbsp;</td>
+                        <td height="30"><strong style="color:#0066CC; font-size:14px;">选择TXT文件</strong></td>
+                    </tr>
+                    <tr>
+                        <td width="27" height="25">&nbsp;</td>
+                        <td>
+                            <input name="number_file" type="file" id="number_file" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="25">&nbsp;</td>
+                        <td>
+                            <input type="submit" name="import_txt" value="确定" class="admin_submit" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script>
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

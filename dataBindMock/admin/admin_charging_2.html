@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理中心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+    .input_text_200 {
+        width: 200px;
+        display: inline-block;
+    }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>充电桩管理</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=list'">充电桩列表</button>
+            <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=piles_add'">添加充电桩</button>
+        </div>
+        <form action="?act=piles_add_save" class="ibox-content" method="post" name="FormData" id="FormData">
+            <div class="external-event navy-bg ui-draggable">新增充电桩</div>
+            <table class="table" width="100%" border="0" cellspacing="0" cellpadding="8">
+                <tr>
+                    <td align="right">桩编号：</td>
+                    <td>
+                        <input name="device_id" type="text" class="input_text_200 form-control" id="piles_id" maxlength="20" />
+                    </td>
+                    <td align="right">桩名称：</td>
+                    <td>
+                        <input name="pile_name" type="text" class="input_text_200 form-control" id="pile_name" maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">桩型号：</td>
+                    <td>
+                        <input name="model" type="text" class="input_text_200 form-control" id="model" maxlength="20" />
+                    </td>
+                    <td align="right">桩类型：</td>
+                    <td>
+                        <div>
+                            <input name="type" id="pile_type" type="hidden" value="" />
+                            <select class="input_text_200 form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">交流充电桩</option>
+                                <option value="2">直流充电桩</option>
+                                <option value="3">交直流一体桩</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">生产日期：</td>
+                    <td>
+                        <input class="form-control input_text_200 layer-date" onclick="laydate({format: 'YYYY-MM-DD'})">
+                    </td>
+                    <td align="right">额定电压：</td>
+                    <td>
+                        <input name="rated_voltage" type="text" class="input_text_200 form-control" id="rated_voltage" maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">额定电流：</td>
+                    <td>
+                        <input name="rated_current" type="text" class="input_text_200 form-control" id="rated_current" maxlength="20" />
+                    </td>
+                    <td align="right">额定功率：</td>
+                    <td>
+                        <input name="rate_power" type="text" class="input_text_200 form-control" id="rate_power" maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">所属桩群：</td>
+                    <td>
+                        <input data-toggle="modal" href="admin_charging_2.html#modal-shu" name="station_txt" type="text" class="input_text_200 form-control" id="station_txt" maxlength="20" value="" />
+                        <input name="station_id" id="station_id" type="hidden" value="" />
+                        <input name="station_cn" id="station_cn" type="hidden" value="" />
+                        <div id="modal-shu" class="modal fade" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="OpenFloatBoxBg"></div>
+                                        <div class="OpenFloatBox">
+                                            <div class="title external-event navy-bg ui-draggable">
+                                                <h4>请选择桩群</h4>
+                                            </div>
+                                            <div class="input-group" style="border-bottom:1px solid #eee;padding:5px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i>查找:</button>
+                                                </span>
+                                                <input type="text" id="ss1" placeholder="查找桩群" class="input form-control">
+                                            </div>
+                                            <div style="font-size:14px;height:300px;overflow-y:scroll;">
+                                                <table class="table" id="table1">
+                                                    <tr v-for="i in one" v-html="i" style="border-bottom:1px solid #eee;line-height:32px">
+                                                        <td>
+                                                            {{i}}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div align="center">
+                                                <input type="button" id="btn1" class="btn btn-w-m btn-primary" value="确定" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td align="right">所属运营商：</td>
+                    <td>
+                        <input data-toggle="modal" href="admin_charging_2.html#modal-yun" name="" type="text" class="input_text_200 form-control" id="operatortxt" maxlength="20" value="" />
+                        <input name="operator_cn" id="operator_cn" type="hidden" value="" />
+                        <input name="owner_id" id="owner_id" type="hidden" value="" />
+                        <div id="modal-yun" class="modal fade" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="OpenFloatBoxBg"></div>
+                                        <div class="OpenFloatBox">
+                                            <div class="title external-event navy-bg ui-draggable">
+                                                <h4>请选择运营商</h4>
+                                            </div>
+                                            <div class="input-group" style="border-bottom:1px solid #eee;padding:5px;">
+                                                <span class="input-group-btn">
+                                                    <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i>查找:</button>
+                                                </span>
+                                                <input type="text" id="ss2" placeholder="查找运营商" class="input form-control">
+                                            </div>
+                                            <div style="font-size:14px;height:300px;overflow-y:scroll;">
+                                                <table class="table" id="table2">
+                                                    <tr v-for="i in two" v-html="i" style="border-bottom:1px solid #eee;line-height:32px;">
+                                                        <td>
+                                                            {{i}}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div align="center">
+                                                <input type="button" id="btn2" class="btn btn-w-m btn-primary" value="确定" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right">所属厂家：</td>
+                    <td>
+                        <input name="factotry" type="text" class="input_text_200 form-control" id="factotry" maxlength="20" />
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="right">备注：</td>
+                    <td>
+                        <input name="remark" type="text" class="input_text_200 form-control" id="remark" maxlength="20" />
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button class="btn btn-w-m btn-primary">提交</button>
+                    </td>
+                </tr>
+            </table>
+            <div id="msgDiv" style="display:none">
+                <div id="msg_t">
+                    <strong>充电单价</strong>
+                    <span id="msgShut">关闭</span>
+                </div>
+                <div id="msgDetail">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="8">
+                        <tr>
+                            <td colspan="3">默认单价：</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><span class="kwh">元/kWh</span>
+                                <input type="text" name="price_basic" class="bd_01" id="price_basic" value="1" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">设定时段一</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="timeone_start" id="timeone_start" class="bd_02" placeholder="00:00" /> -
+                                <input type="text" name="timeone_end" id="timeone_end" class="bd_02" placeholder="00:00" />
+                            </td>
+                            <td>每度电单价：</td>
+                            <td><span class="kwh">元/kWh</span>
+                                <input type="text" name="timeone_price" id="timeone_price" class="bd_01" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">设定时段二</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="timetwo_start" id="timetwo_start" class="bd_02" placeholder="00:00" /> -
+                                <input type="text" name="timetwo_end" id="timetwo_end" class="bd_02" placeholder="00:00" />
+                            </td>
+                            <td>每度电单价：</td>
+                            <td><span class="kwh">元/kWh</span>
+                                <input type="text" name="timetwo_price" id="timetwo_price" class="bd_01" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">设定时段三</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="timethree_start" id="timethree_start" class="bd_02" placeholder="00:00" /> -
+                                <input type="text" name="timethree_end" id="timethree_end" class="bd_02" placeholder="00:00" />
+                            </td>
+                            <td>每度电单价：</td>
+                            <td><span class="kwh">元/kWh</span>
+                                <input type="text" name="timethree_price" id="timethree_price" class="bd_01" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">设定时段四</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="timefour_start" id="timefour_start" class="bd_02" placeholder="00:00" /> -
+                                <input type="text" name="timefour_end" id="timefour_end" class="bd_02" placeholder="00:00" />
+                            </td>
+                            <td>每度电单价：</td>
+                            <td><span class="kwh">元/kWh</span>
+                                <input type="text" name="timefour_price" id="timefour_price" class="bd_01" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <label>
+                                    <input type="button" value="提交" onclick="" id="click" />
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="bgDiv">
+            </div>
+        </form>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script src="js/plugins/layer/laydate/laydate.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript">
+$.get("../data/data/admin_charging_2.json", function(Data) {
+    var table1 = new Vue({
+        el: "#table1",
+        data: Data
+    });
+
+    var table2 = new Vue({
+        el: "#table2",
+        data: Data
+    });
+
+    $(document).ready(function() {
+        // 获取元素
+        var $sub1 = $("#ss1");
+        var $tab1 = $("#table1");
+        $sub1.on("input", function() {
+            var $iptVal1 = $sub1.val();
+            $("#table1 tr").hide();
+            // $("#table1 tr").eq(0).show();
+            $("#table1 label").filter(":contains('" + $iptVal1 + "')").parent().show();
+        });
+        var $sub2 = $("#ss2");
+        var $tab2 = $("#table2");
+        $sub2.on("input", function() {
+            var $iptVal2 = $sub2.val();
+            $("#table2 tr").hide();
+            // $("#table1 tr").eq(0).show();
+            $("#table2 label").filter(":contains('" + $iptVal2 + "')").parent().show();
+        });
+        $("#btn1").click(function() {
+            var $vb = $('input[name="radio1"]:checked').attr('title');
+            $("#station_txt").val($vb);
+            $("#modal-shu").removeClass('in').css("display", "none");
+            $(".modal-backdrop").removeClass();
+        });
+        $("#btn2").click(function() {
+            var $vf = $('input[name="radio2"]:checked').attr('title');
+            $("#operatortxt").val($vf);
+            $("#modal-yun").removeClass('in').css("display", "none");
+            $(".modal-backdrop").removeClass();
+        });
+    });
+});
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

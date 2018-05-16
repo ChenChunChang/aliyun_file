@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload()"><i class="glyphicon glyphicon-repeat"></i></button> &nbsp;&nbsp;
+            <b>订单管理</b> &nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="clear"></div>
+        </div>
+        <div class="ibox-content">
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">完成状态:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?act=members_list&verification=&key=&page=1'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=members_list&verification=1&key=&page=1'">已完成</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=members_list&verification=2&key=&page=1'">待付款</button>
+            </p>
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">付款方式:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?act=order_list&typename=&key=&page=1'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=BOC&key=&page=1'">中国银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=ABC&key=&page=1'">农业银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=COMM&key=&page=1'">交通银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=CEB&key=&page=1'">光大银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=CITIC&key=&page=1'">中信银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=CMB&key=&page=1'">招商银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=ICBC&key=&page=1'">工商银行</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&typename=CCB&key=&page=1'">建设银行</button>
+            </p>
+            <p>
+                <button type="button" class="btn btn-w-m btn-link btn-sm">添加时间:</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-primary" onclick="location.href='?act=order_list&settr=&key=&page=1'">不限</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&settr=3&key=&page=1'">三天内</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&settr=7&key=&page=1'">一周内</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&settr=30&key=&page=1'">一月内</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&settr=180&key=&page=1'">半年内</button>
+                <button type="button" class="btn btn-w-m btn-sm btn-white" onclick="location.href='?act=order_list&settr=360&key=&page=1'">一年内</button>
+            </p>
+        </div>
+        <form id="form1" name="form1" class="ibox-content table-responsive" method="post" action="?act=company_perform">
+            <input type="hidden" name="hiddentoken" value="c313f74c" />
+            <table class="table table-striped" id="table1" style="border-bottom: 1px solid #eee;">
+                <thead>
+                    <tr>
+                        <td v-for="i in name" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="key in message">
+                        <td v-for="i in key" v-html="i">
+                            {{i}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div v-if="message"></div>
+            <div v-else="message">没有任何信息！</div>
+        </form>
+        <div class="ibox-content">
+            <table style="border:1px solid #fff">
+                <tr class="row">
+                    <td class="col-sm-4 m-b-xs">
+                        <a data-toggle="modal" href="admin_corporateV5.html#modal-return" class="btn btn-outline btn-default" title="取消订单">
+                            <i class="fa fa-mail-reply"></i>
+                        </a>
+                    </td>
+                    <td class="col-sm-8 m-b-xs">
+                        <form id="formseh" name="formseh" method="get" action="?">
+                            <div class="input-group ibox-tools" style="margin-top: -7px;">
+                                <div style="float: right;">
+                                    <input name="act" type="hidden" value="members_list" />
+                                    <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-search"></i>&nbsp;搜索</button>
+                                </div>
+                                <div style="float: right;">
+                                    <input name="key" type="text" value="" class="form-control input-sm" />
+                                </div>
+                                <div style="float: right;">
+                                    <select class="form-control m-b input-sm" name="key_type" style="border-right: none;">
+                                        <option value="1">企业名</option>
+                                        <option value="2">会员名</option>
+                                        <option value="3">单号</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="dataTables_paginate paging_simple_numbers ibox-content">
+                <ul class="pagination btn-sm ibox-tools">
+                    <li>
+                        <a class="">首页</a>
+                    </li>
+                    <li>
+                        <a class="">上一页</a>
+                    </li>
+                    <li>
+                        <a class="select">1</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=2">2</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=3">3</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=4">4</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=5">5</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=6">6</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=7">7</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=8">8</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=9">9</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=10">10</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=2">下一页</a>
+                    </li>
+                    <li>
+                        <a href="/admin/admin_company.php?act=order_list&page=27">尾页</a>
+                    </li>
+                    <li class="page_all">
+                        <a>1/27页</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--  -->
+    <div id="modal-return" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                  	<p><strong style="color:#0066CC; font-size:14px;">你确定取消吗？</strong></p>
+                  	<p style="margin-top:30px"><input type="submit" name="" id="set_return" value="确定取消" class="btn btn-w-m btn-primary" /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/peity/jquery.peity.min.js"></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="js/content.min.js?v=1.0.0"></script>
+<script src="js/vue.js"></script>
+<script>
+$.get("../data/data/admin_corporateV5.json", function(Data) {
+    var app = new Vue({
+        el: "#form1",
+        data: Data
+    });
+    var btn = document.getElementById("chk");
+    var test = document.getElementsByName("id[]");
+    btn.onclick = function() {
+        for (var i = 1; i <= test.length; i += 1) {
+            if (test[i - 1].checked) {
+                test[i - 1].checked = false;
+            } else {
+                test[i - 1].checked = true;
+            }
+        }
+    };
+    $("#set_return").click(function() {
+        $("#modal-return").removeClass('in').css("display", "none");
+        $(".modal-backdrop").removeClass();
+    });
+});
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+</html>

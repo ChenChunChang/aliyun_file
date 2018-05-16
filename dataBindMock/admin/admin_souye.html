@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <!-- 引入 echarts.js -->
+    <script src="js/echarts.min.js"></script>
+    <style type="text/css">
+    .toptit60 {
+        float: left;
+        width: 60%;
+        text-align: center;
+        border-bottom: 1px #DFEDF7 solid;
+        border-top: 1px #DFEDF7 solid;
+        background-color: #F0F8FD;
+        line-height: 40px;
+        font-size: 16px;
+        text-indent: 20px;
+        margin-bottom: 10px;
+    }
+
+    .toptit40 {
+        float: left;
+        width: 40%;
+        text-align: center;
+        border-bottom: 1px #DFEDF7 solid;
+        border-top: 1px #DFEDF7 solid;
+        background-color: #F0F8FD;
+        line-height: 40px;
+        font-size: 16px;
+        text-indent: 20px;
+        margin-bottom: 10px;
+    }
+
+    .maintxt {
+        padding: 0 20px 10px 20px;
+        overflow: auto;
+    }
+
+    .gaik60 {
+        float: left;
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 400px;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+        cursor: default;
+    }
+
+    .gaik40 {
+        float: left;
+        position: relative;
+        overflow: hidden;
+        width: 40%;
+        height: 400px;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+        cursor: default;
+    }
+
+    .toptit {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px #DFEDF7 solid;
+        border-top: 1px #DFEDF7 solid;
+        background-color: #F0F8FD;
+        line-height: 40px;
+        font-size: 16px;
+        text-indent: 20px;
+        margin-bottom: 10px;
+    }
+
+    .gaik {
+        float: left;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .gaik .mm1 {
+        background-color: #0854a2;
+        background-position: 15px 16px;
+    }
+
+    .gaik li {
+        float: left;
+        width: 23%;
+        overflow: hidden;
+        padding-top: 23px;
+        height: 100px;
+        margin: 1%;
+        background-image: url(./images/main_b.png);
+        background-repeat: no-repeat;
+    }
+
+    li {
+        line-height: 180%;
+        list-style-type: none;
+    }
+
+    .gaik .mm2 {
+        background-color: #f99b21;
+        background-position: 15px -115px;
+    }
+
+    .gaik .mm3 {
+        background-color: #5688c5;
+        background-position: 15px -247px;
+    }
+
+    .gaik .mm4 {
+        background-color: #107065;
+        background-position: 15px -378px;
+    }
+
+    .gaik .mm5 {
+        background-color: #e0501f;
+        background-position: 15px -507px;
+    }
+
+    .gaik .mm6 {
+        background-color: #108d9f;
+        background-position: 15px -639px;
+    }
+
+    .gaik .mm7 {
+        background-color: #34abe1;
+        background-position: 15px -771px;
+    }
+
+    .gaik .mm8 {
+        background-color: #a19d39;
+        background-position: 15px -898px;
+    }
+
+    .toptit25 {
+        float: left;
+        width: 25%;
+        text-align: center;
+        border-bottom: 1px #DFEDF7 solid;
+        border-top: 1px #DFEDF7 solid;
+        background-color: #F0F8FD;
+        line-height: 40px;
+        font-size: 16px;
+        text-indent: 20px;
+        margin-bottom: 10px;
+    }
+
+    .gaik25 {
+        float: left;
+        position: relative;
+        overflow: hidden;
+        width: 25%;
+        height: 200px;
+        padding: 0px;
+        margin: 0px;
+        border-width: 0px;
+        cursor: default;
+    }
+
+    .gaik li span {
+        font-size: 16px;
+        color: #fff;
+        margin-left: 100px;
+        line-height: 20px;
+        -moz-opacity: 0.5;
+        opacity: 0.5;
+    }
+
+    .gaik li strong {
+        font-size: 30px;
+        color: #fff;
+        margin-left: 100px;
+        font-weight: normal;
+        line-height: 35px;
+    }
+
+    .gaik li i {
+        font-size: 16px;
+        color: #fff;
+        font-style: normal;
+        margin-left: 10px;
+        -moz-opacity: 0.5;
+        opacity: 0.5;
+    }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <div class="alert alert-info">欢迎登录 任我充 管理中心！</div>
+        </div>
+        <div class="ibox-content">
+            <div class="toptit60">近14天营收数据</div>
+            <div class="toptit40">近12个月营收数据</div>
+            <div class="maintxt">
+                <div class="gaik60">
+                    <div id="main_day" style="width: 96%;height:400px;"></div>
+                    <script type="text/javascript">
+                    var myChart = echarts.init(document.getElementById('main_day'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                crossStyle: {
+                                    color: '#999'
+                                }
+                            }
+                        },
+                        grid: {
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        legend: {
+                            data: ['消耗电量', '消费金额', '订单量', '活动桩']
+                        },
+                        xAxis: [{
+                            type: 'category',
+                            data: [
+                                '06-03',
+                                '06-04',
+                                '06-05',
+                                '06-06',
+                                '06-07',
+                                '06-08',
+                                '06-09',
+                                '06-10',
+                                '06-11',
+                                '06-12',
+                                '06-13',
+                                '06-14',
+                                '06-15',
+                                '06-16',
+                            ],
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        }],
+                        yAxis: [{
+                            type: 'value',
+                            name: '订单/桩',
+                            min: 0,
+                            max: 800,
+                            interval: 100,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }, {
+                            type: 'value',
+                            name: '电量/金额',
+                            min: 0,
+                            max: 32000,
+                            interval: 4000,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }],
+                        series: [{
+                                name: '消耗电量',
+                                type: 'line',
+                                yAxisIndex: 1,
+                                data: [
+                                    17757.00,
+                                    17262.00,
+                                    18044.51,
+                                    17901.39,
+                                    17226.74,
+                                    17219.73,
+                                    18716.53,
+                                    15665.41,
+                                    16127.11,
+                                    15958.24,
+                                    16186.11,
+                                    16001.28,
+                                    3785.25,
+                                    24.50,
+                                ]
+                            }, {
+                                name: '消费金额',
+                                type: 'line',
+                                yAxisIndex: 1,
+                                data: [
+                                    23201.23,
+                                    22234.71,
+                                    22599.24,
+                                    22133.37,
+                                    22166.58,
+                                    22955.45,
+                                    24636.27,
+                                    20150.78,
+                                    20678.25,
+                                    21697.36,
+                                    20163.93,
+                                    18379.87,
+                                    3024.41,
+                                    29.40,
+                                ]
+                            }, {
+                                name: '订单量',
+                                type: 'bar',
+                                data: [
+                                    520,
+                                    508,
+                                    526,
+                                    538,
+                                    543,
+                                    565,
+                                    532,
+                                    448,
+                                    452,
+                                    510,
+                                    484,
+                                    443,
+                                    143,
+                                    1,
+                                ]
+                            }, {
+                                name: '活动桩',
+                                type: 'bar',
+                                data: [
+                                    73,
+                                    73,
+                                    79,
+                                    78,
+                                    75,
+                                    77,
+                                    75,
+                                    71,
+                                    66,
+                                    76,
+                                    75,
+                                    64,
+                                    61,
+                                    1,
+                                ]
+                            }
+
+                        ]
+                    };
+                    myChart.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myChart.resize();
+                    });
+                    </script>
+                </div>
+                <div class="gaik40">
+                    <div id="main_month" style="width: 96%;height:400px;"></div>
+                    <script type="text/javascript">
+                    var myCharts = echarts.init(document.getElementById('main_month'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'axis',
+                            axisPointer: {
+                                type: 'cross',
+                                crossStyle: {
+                                    color: '#999'
+                                }
+                            }
+                        },
+                        grid: {
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        legend: {
+                            data: ['消耗电量', '消费金额', '订单量', '活动桩']
+                        },
+                        xAxis: [{
+                            type: 'category',
+                            data: [
+                                '2016-07',
+                                '2016-08',
+                                '2016-09',
+                                '2016-10',
+                                '2016-11',
+                                '2016-12',
+                                '2017-01',
+                                '2017-02',
+                                '2017-03',
+                                '2017-04',
+                                '2017-05',
+                                '2017-06',
+                            ],
+                            axisPointer: {
+                                type: 'shadow'
+                            }
+                        }],
+                        yAxis: [{
+                            type: 'value',
+                            name: '订单/桩',
+                            min: 0,
+                            max: 20000,
+                            interval: 4000,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }, {
+                            type: 'value',
+                            name: '电量/金额',
+                            min: 0,
+                            max: 2500000,
+                            interval: 500000,
+                            axisLabel: {
+                                formatter: '{value}'
+                            }
+                        }],
+                        series: [{
+                                name: '消耗电量',
+                                type: 'line',
+                                yAxisIndex: 1,
+                                data: [
+                                    166.75,
+                                    256027.07,
+                                    238934.66,
+                                    218363.73,
+                                    210091.02,
+                                    350662.79,
+                                    1610572.64,
+                                    483560.06,
+                                    482932.71,
+                                    451873.54,
+                                    524212.81,
+                                    244377.15,
+                                ]
+                            }, {
+                                name: '消费金额',
+                                type: 'line',
+                                yAxisIndex: 1,
+                                data: [
+                                    761.71,
+                                    283824.64,
+                                    258101.11,
+                                    245190.52,
+                                    230024.22,
+                                    402875.44,
+                                    2312483.43,
+                                    630601.09,
+                                    551857.30,
+                                    525272.80,
+                                    633804.09,
+                                    307937.78,
+                                ]
+                            }, {
+                                name: '订单量',
+                                type: 'bar',
+                                data: [
+                                    1204,
+                                    14791,
+                                    12885,
+                                    9671,
+                                    7535,
+                                    11241,
+                                    9711,
+                                    7348,
+                                    13653,
+                                    13196,
+                                    15612,
+                                    7263,
+                                ]
+                            }, {
+                                name: '活动桩',
+                                type: 'bar',
+                                data: [
+                                    31,
+                                    115,
+                                    100,
+                                    81,
+                                    127,
+                                    142,
+                                    94,
+                                    82,
+                                    94,
+                                    95,
+                                    98,
+                                    85,
+                                ]
+                            }
+
+                        ]
+                    };
+                    myCharts.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myCharts.resize();
+                    });
+                    </script>
+                </div>
+            </div>
+            <div class="toptit">大数据概况</div>
+            <div class="maintxt">
+                <div class="gaik">
+                    <ul>
+                        <li class="mm1"><span>充电订单</span>
+                            <br/><strong>124526</strong><i>次充电</i></li>
+                        <li class="mm2"><span>充电金额</span>
+                            <br/><strong>6562111.12</strong><i>元</i></li>
+                        <li class="mm3"><span>充电桩群</span>
+                            <br/><strong>113</strong><i>站</i></li>
+                        <li class="mm4"><span>充电桩</span>
+                            <br/><strong>930</strong><i>台</i></li>
+                        <li class="mm5"><span>运营商</span>
+                            <br/><strong>10</strong><i>位</i></li>
+                        <li class="mm6"><span>企业会员</span>
+                            <br/><strong>3</strong><i>位</i></li>
+                        <li class="mm7"><span>个人会员</span>
+                            <br/><strong>17</strong><i>位</i></li>
+                        <li class="mm8"><span>公交会员</span>
+                            <br/><strong>4</strong><i>位</i></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="maintxt">
+                <div class="toptit25">用户分析</div>
+                <div class="toptit25">充电类型分析</div>
+                <div class="toptit25">电桩类型分析</div>
+                <div class="toptit25">电桩故障分析</div>
+                <div class="gaik25">
+                    <div id="main_dq1" style="width: 100%;height:200px;"></div>
+                    <script type="text/javascript">
+                    var myChart1 = echarts.init(document.getElementById('main_dq1'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        grid: {
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        series: [{
+                            name: '用户数量',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            data: [{
+                                value: 3,
+                                name: '企业用户'
+                            }, {
+                                value: 17,
+                                name: '个人用户'
+                            }, {
+                                value: 10,
+                                name: '运营商'
+                            }, {
+                                value: 4,
+                                name: '公交用户'
+                            }, {
+                                value: '',
+                                name: ''
+                            }]
+                        }]
+                    };
+                    myChart1.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myChart1.resize();
+                    });
+                    </script>
+                </div>
+                <div class="gaik25">
+                    <div id="main_dq2" style="width: 100%;height:200px;"></div>
+                    <script type="text/javascript">
+                    var myChart2 = echarts.init(document.getElementById('main_dq2'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        grid: {
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        series: [{
+                            name: '充电类型',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            data: [{
+                                value: 69,
+                                name: '未知'
+                            }, {
+                                value: 3797,
+                                name: 'APP充电'
+                            }, {
+                                value: 120654,
+                                name: '刷卡充电'
+                            }, {
+                                value: 6,
+                                name: '微信充电'
+                            }, {
+                                value: '',
+                                name: ''
+                            }]
+                        }]
+                    };
+                    myChart2.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myChart2.resize();
+                    });
+                    </script>
+                </div>
+                <div class="gaik25">
+                    <div id="main_dq3" style="width: 100%;height:200px;"></div>
+                    <script type="text/javascript">
+                    var myChart3 = echarts.init(document.getElementById('main_dq3'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        grid: {
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        series: [{
+                            name: '电桩类型',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            data: [{
+                                value: 636,
+                                name: '交流桩'
+                            }, {
+                                value: 356,
+                                name: '直流桩'
+                            }, {
+                                value: 14,
+                                name: '交直流一体桩'
+                            }, {
+                                value: '',
+                                name: ''
+                            }]
+                        }]
+                    };
+                    myChart3.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myChart3.resize();
+                    });
+                    </script>
+                </div>
+                <div class="gaik25">
+                    <div id="main_dq4" style="width: 100%;height:200px;"></div>
+                    <script type="text/javascript">
+                    var myChart4 = echarts.init(document.getElementById('main_dq4'));
+                    var option = {
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b}: {c} ({d}%)"
+                        },
+                        grid: {
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            containLabel: true
+                        },
+                        series: [{
+                            name: '故障类型',
+                            type: 'pie',
+                            radius: '55%',
+                            center: ['50%', '60%'],
+                            data: [{
+                                value: 26,
+                                name: '过流'
+                            }, {
+                                value: 20,
+                                name: '欠压'
+                            }, {
+                                value: 10,
+                                name: '过压'
+                            }, {
+                                value: 28853,
+                                name: '急停故障'
+                            }, {
+                                value: 329,
+                                name: '连接器故障'
+                            }, {
+                                value: 31950,
+                                name: '充电机故障'
+                            }, {
+                                value: 16,
+                                name: '桩门异常'
+                            }, {
+                                value: 14,
+                                name: '枪锁异常'
+                            }, {
+                                value: '',
+                                name: ''
+                            }]
+                        }]
+                    };
+                    myChart4.setOption(option);
+                    window.addEventListener("resize", function() {
+                        myChart4.resize();
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>

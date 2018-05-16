@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <style type="text/css">
+        .input_text_200{
+            width: 200px;
+            display:inline-block;
+        }
+    </style>
+</head>
+
+<body class="gray-bg sidebar-content">
+    <div class="wrapper-content animated fadeInRight">
+        <div class="ibox-title">
+            <button class="btn btn-default btn-xs" type="button" onclick="window.location.reload() "><i class="glyphicon glyphicon-repeat"></i></button>
+            &nbsp;&nbsp;<b>个人会员</b>
+        </div>
+        <div class="ibox-content">
+            <div class="external-event navy-bg ui-draggable">添加个人会员</div>
+            <form id="form1" name="form1" method="post" action="?act=members_add_save">
+                <input type="hidden" name="hiddentoken" value="9a430b5c" />
+                <table class="table">
+                    <tr>
+                        <td width="120" height="30" align="right">用户名：</td>
+                        <td>
+                            <input name="username" type="text" class="input_text_200 form-control" id="username" maxlength="25" value="" />
+                            <label></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">登录密码：</td>
+                        <td>
+                            <input name="password" type="password" class="input_text_200 form-control" id="password" maxlength="25" value="" />
+                            <label></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">再次输入密码：</td>
+                        <td>
+                            <input name="password1" type="password" class="input_text_200 form-control" id="password1" maxlength="25" value="" />
+                            <label></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">手机：</td>
+                        <td>
+                            <input name="mobile" type="text" class="input_text_200 form-control" id="mobile" maxlength="25" value="" />
+                            <label></label>
+                            <input name="mobile_audit" type="checkbox" id="mobile_audit" value="1" checked> 通过验证
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">邮箱：</td>
+                        <td>
+                            <input name="email" type="text" class="input_text_200 form-control" id="email" maxlength="25" value="" />
+                            <label></label>
+                            <input name="email_audit" type="checkbox" id="email_audit" value="1" checked> 通过验证
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">是否赠送积分：</td>
+                        <td>
+                            <label>
+                                <input name="regpoints" type="radio" value="y" checked="checked" /> 赠送
+                            </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label>
+                                <input type="radio" name="regpoints" value="n" /> 不赠送
+                            </label>
+                        </td>
+                    </tr>
+                    <tr id="regpointsshow">
+                        <td height="30" align="right">赠送数量：</td>
+                        <td>
+                            <input name="regpoints_num" type="text" class="input_text_200 form-control" id="regpoints_num" maxlength="25" value="100" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" align="right">&nbsp;</td>
+                        <td>
+                            <input type="hidden" name="member_type" value="2" />
+                            <input name="submit3" type="submit" class="btn btn-w-m btn-primary" value="添加" />
+                            <input name="submit22" type="button" class="btn btn-w-m btn-primary" value="返 回" onclick="window.location.href='?act=members_list'" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <!-- -->
+</body>
+<script src="js/jquery.min.js?v=2.1.4 "></script>
+<script src="js/bootstrap.min.js?v=3.3.6 "></script>
+<script src="js/plugins/peity/jquery.peity.min.js "></script>
+<script src="js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820 "></script>
+<script src="js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820 "></script>
+<script src="js/content.min.js?v=1.0.0 "></script>
+<script type="text/javascript ">
+var btn = document.getElementById("chk");
+var test = document.getElementsByName("id[]");
+btn.onclick = function() {
+    for (var i = 1; i <= test.length; i += 1) {
+        if (test[i - 1].checked) {
+            test[i - 1].checked = false;
+        } else {
+            test[i - 1].checked = true;
+        }
+    }
+};
+</script>
+<script type="text/javascript " src="http://tajs.qq.com/stats?sId=9051096 " charset="UTF-8 "></script>
+
+</html>
